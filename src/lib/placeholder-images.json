@@ -1,0 +1,16 @@
+{
+  "placeholderImages": [
+    {
+      "id": "dmc-coin",
+      "description": "DMC Golden Coin Logo",
+      "imageUrl": "https://res.cloudinary.com/dfu6gb3nu/image/upload/v1776925787/coin-logo.png_ylp5wa.jpg",
+      "imageHint": "golden coin"
+    },
+    {
+      "id": "dmc-profile-logo",
+      "description": "DMC Logo Profile Image",
+      "imageUrl": "https://picsum.photos/seed/dmcprofile/200/200",
+      "imageHint": "person profile"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 140 16% 7%;
+    --foreground: 140 10% 98%;
+    --card: 140 16% 5%;
+    --card-foreground: 140 10% 98%;
+    --popover: 140 16% 5%;
+    --popover-foreground: 140 10% 98%;
+    --primary: 140 89% 50%; /* #0DF258 */
+    --primary-foreground: 140 10% 5%;
+    --secondary: 140 16% 12%;
+    --secondary-foreground: 140 10% 98%;
+    --muted: 140 16% 12%;
+    --muted-foreground: 140 10% 65%;
+    --accent: 140 89% 50%;
+    --accent-foreground: 140 10% 5%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 140 16% 15%;
+    --input: 140 16% 15%;
+    --ring: 140 89% 50%;
+    --radius: 0.125rem;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    text-shadow: 0 0 5px rgba(13, 242, 88, 0.7), 0 0 10px rgba(13, 242, 88, 0.5), 0 0 15px rgba(13, 242, 88, 0.3);
+  }
+  .neon-border {
+    box-shadow: 0 0 5px rgba(13, 242, 88, 0.5), inset 0 0 5px rgba(13, 242, 88, 0.2);
+  }
+  .glass {
+    @apply bg-black/60 backdrop-blur-md;
+  }
+  .terminal-cursor {
+    @apply inline-block w-2 h-5 bg-neon-green align-middle ml-1;
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@layer utilities {
+  .scanline-bg {
+    background: linear-gradient(to bottom, transparent 50%, rgba(13, 242, 88, 0.05) 50%);
+    background-size: 100% 4px;
+  }
+  .parallax-wireframe {
+    background-image: linear-gradient(rgba(13, 242, 88, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(13, 242, 88, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
