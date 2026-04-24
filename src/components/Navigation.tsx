@@ -243,10 +243,6 @@ export function Navigation() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <div className="flex items-center gap-4">
-            <div className="font-headline font-bold text-neon-green flex items-baseline">
-              <span className="text-5xl tracking-tighter">DMC</span>
-              <span className="text-xl font-medium whitespace-pre">  加密交易</span>
-            </div>
             <div className="relative w-16 h-16 rounded-full overflow-hidden border border-neon-green/30 shadow-[0_0_12px_rgba(13,242,88,0.25)]">
               <Image
                 src="/dmc-logo.png"
@@ -255,6 +251,10 @@ export function Navigation() {
                 height={64}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
+            </div>
+            <div className="font-headline font-bold text-neon-green flex items-baseline">
+              <span className="text-5xl tracking-tighter">DMC</span>
+              <span className="text-xl font-medium whitespace-pre">  加密交易</span>
             </div>
           </div>
         </div>
