@@ -7,6 +7,7 @@ const IntroScreen = dynamic(
   () => import("@/components/IntroScreen").then((m) => m.IntroScreen),
   { ssr: false }
 );
+
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -19,13 +20,14 @@ import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { SectionReveal } from "@/components/SectionReveal";
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
 
   return (
     <LanguageProvider>
-      {/* Intro / loading animation — shown once on initial page load */}
+      {/* Intro / loading animation */}
       {!introComplete && (
         <IntroScreen onComplete={() => setIntroComplete(true)} />
       )}
@@ -38,21 +40,27 @@ export default function Home() {
         }}
       >
         <Navigation />
-        <Hero />
-        <Advantages />
-        <About />
-        <Indicators />
-        <TrainingMatrix />
-        <BitunixPartner />
-        <Testimonials />
-        <FAQ />
-        <CTA />
-        <Footer />
 
-        {/* Global Background Scanline Overlay */}
+        {/* Hero — no reveal wrapper (has its own intro) */}
+        <Hero />
+
+        {/* Every section below gets the tile-shatter scroll reveal */}
+        <SectionReveal><Advantages /></SectionReveal>
+        <SectionReveal><About /></SectionReveal>
+        <SectionReveal><Indicators /></SectionReveal>
+        <SectionReveal><TrainingMatrix /></SectionReveal>
+        <SectionReveal><BitunixPartner /></SectionReveal>
+        <SectionReveal><Testimonials /></SectionReveal>
+        <SectionReveal><FAQ /></SectionReveal>
+        <SectionReveal><CTA /></SectionReveal>
+        <SectionReveal><Footer /></SectionReveal>
+
+        {/* Global scanline overlay */}
         <div className="fixed inset-0 pointer-events-none z-[100]">
-          <div className="absolute inset-0 bg-transparent animate-scanline"
-               style={{ background: 'linear-gradient(to bottom, transparent, rgba(13, 242, 88, 0.03) 50%, transparent)' }} />
+          <div
+            className="absolute inset-0 animate-scanline"
+            style={{ background: "linear-gradient(to bottom, transparent, rgba(13, 242, 88, 0.03) 50%, transparent)" }}
+          />
         </div>
       </main>
     </LanguageProvider>
