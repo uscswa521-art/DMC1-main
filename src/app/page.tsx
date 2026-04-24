@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { IntroScreen } from "@/components/IntroScreen";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -14,9 +16,22 @@ import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export default function Home() {
+  const [introComplete, setIntroComplete] = useState(false);
+
   return (
     <LanguageProvider>
-      <main className="min-h-screen">
+      {/* Intro / loading animation — shown once on initial page load */}
+      {!introComplete && (
+        <IntroScreen onComplete={() => setIntroComplete(true)} />
+      )}
+
+      <main
+        className="min-h-screen"
+        style={{
+          opacity: introComplete ? 1 : 0,
+          transition: introComplete ? "opacity 0.6s ease" : "none",
+        }}
+      >
         <Navigation />
         <Hero />
         <Advantages />
