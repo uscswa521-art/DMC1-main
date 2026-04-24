@@ -249,11 +249,11 @@ export function Hero() {
       <div className="absolute inset-0 scanline-bg pointer-events-none z-[11] opacity-20" />
 
       {/* Content */}
-      <div className="container relative z-20 px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-32">
+      <div className="container relative z-20 px-6 lg:px-16 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-32">
 
         {/* ── Left: Text (no buttons) ── */}
-        <div className="space-y-8">
-          <h1 className="font-headline text-5xl md:text-6xl xl:text-7xl font-bold leading-tight text-white neon-glow">
+        <div className="space-y-8 lg:pl-6 xl:pl-10">
+          <h1 className="font-headline text-6xl md:text-7xl xl:text-8xl font-bold leading-tight text-white neon-glow">
             {t.hero.headline}
           </h1>
 
