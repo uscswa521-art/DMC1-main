@@ -216,7 +216,7 @@ function PopupFAQ({ t }: { t: any }) {
 
 // ── Popup content router ──────────────────────────────────
 
-function PopupContent({ href, t, onAboutClick }: { href: string; t: any; onAboutClick: () => void }) {
+function PopupContent({ href, t, onAboutClick }: { href: string; t: any; onAboutClick: () => void; }) {
   switch (href) {
     case '#about':        return <PopupAbout t={t} onAboutClick={onAboutClick} />;
     case '#advantages':   return <PopupAdvantages t={t} />;
@@ -233,20 +233,35 @@ function PopupContent({ href, t, onAboutClick }: { href: string; t: any; onAbout
 
 type Align = 'left' | 'center' | 'right';
 
+// Pages that use CyberBoot transition instead of hash-scroll
+const TRANSITION_PAGES: Record<string, string> = {
+  '#indicators':   '/indicators',
+  '#training':     '/training',
+  '#testimonials': '/testimonials',
+  '#about':        '/about',
+  '#faq':          '/faq',
+};
+
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showTransition, setShowTransition] = useState(false);
+  const [transitionTarget, setTransitionTarget] = useState('/about');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { lang, setLang, t } = useLanguage();
 
-  const handleAboutClick = useCallback(() => {
+  const triggerTransition = useCallback((target: string) => {
+    setTransitionTarget(target);
     setShowTransition(true);
   }, []);
 
+  const handleAboutClick = useCallback(() => {
+    triggerTransition('/about');
+  }, [triggerTransition]);
+
   const handleTransitionComplete = useCallback(() => {
-    window.location.href = '/about';
-  }, []);
+    window.location.href = transitionTarget;
+  }, [transitionTarget]);
 
   const NAV_LINKS: { name: string; href: string; align: Align }[] = [
     { name: t.nav.advantages,   href: '#advantages',   align: 'left'   },
@@ -325,20 +340,20 @@ export function Navigation() {
             <div key={link.href} className="relative group/nav">
 
               {/* Link text */}
-              {link.href === '#about' ? (
+              {TRANSITION_PAGES[link.href] ? (
                 <button
-                  onClick={handleAboutClick}
+                  onClick={() => triggerTransition(TRANSITION_PAGES[link.href])}
                   className="text-xs uppercase tracking-wider text-white/80 hover:text-neon-green transition-colors font-code font-semibold block py-1 whitespace-nowrap"
                 >
                   {link.name}
                 </button>
               ) : (
-              <a
-                href={link.href}
-                className="text-xs uppercase tracking-wider text-white/80 hover:text-neon-green transition-colors font-code font-semibold block py-1 whitespace-nowrap"
-              >
-                {link.name}
-              </a>
+                <a
+                  href={link.href}
+                  className="text-xs uppercase tracking-wider text-white/80 hover:text-neon-green transition-colors font-code font-semibold block py-1 whitespace-nowrap"
+                >
+                  {link.name}
+                </a>
               )}
 
               {/* ── Hover popup ── */}
@@ -365,7 +380,7 @@ export function Navigation() {
                                            'left-1/2 -translate-x-1/2'
                 )} />
 
-                <PopupContent href={link.href} t={t} onAboutClick={handleAboutClick} />
+                <PopupContent href={link.href} t={t} onAboutClick={() => triggerTransition(TRANSITION_PAGES[link.href] ?? '/about')} />
               </div>
             </div>
           ))}
