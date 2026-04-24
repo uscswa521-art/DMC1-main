@@ -1,42 +1,22 @@
 "use client";
 
-import { useState } from "react";
-import dynamic from "next/dynamic";
-
-const IntroScreen = dynamic(
-  () => import("@/components/IntroScreen").then((m) => m.IntroScreen),
-  { ssr: false }
-);
-
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
 import { Advantages } from "@/components/sections/Advantages";
-import { Indicators } from "@/components/sections/Indicators";
+// import { Indicators } from "@/components/sections/Indicators";
 import { BitunixPartner } from "@/components/sections/BitunixPartner";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { FAQ } from "@/components/sections/FAQ";
+import { WhoIsItFor } from "@/components/sections/WhoIsItFor";
+// import { Testimonials } from "@/components/sections/Testimonials";
+// import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { SectionReveal } from "@/components/SectionReveal";
 
 export default function Home() {
-  const [introComplete, setIntroComplete] = useState(false);
-
   return (
     <LanguageProvider>
-      {/* Intro / loading animation */}
-      {!introComplete && (
-        <IntroScreen onComplete={() => setIntroComplete(true)} />
-      )}
-
-      <main
-        className="min-h-screen"
-        style={{
-          opacity: introComplete ? 1 : 0,
-          transition: introComplete ? "opacity 0.6s ease" : "none",
-        }}
-      >
+      <main className="min-h-screen">
         <Navigation />
 
         {/* Hero — no reveal wrapper (has its own intro) */}
@@ -44,10 +24,11 @@ export default function Home() {
 
         {/* Every section below gets the tile-shatter scroll reveal */}
         <SectionReveal><Advantages /></SectionReveal>
-        <SectionReveal><Indicators /></SectionReveal>
+        {/* <SectionReveal><Indicators /></SectionReveal> */}
         <SectionReveal><BitunixPartner /></SectionReveal>
-        <SectionReveal><Testimonials /></SectionReveal>
-        <SectionReveal><FAQ /></SectionReveal>
+        <SectionReveal><WhoIsItFor /></SectionReveal>
+        {/* <SectionReveal><Testimonials /></SectionReveal> */}
+        {/* <SectionReveal><FAQ /></SectionReveal> */}
         <SectionReveal><CTA /></SectionReveal>
         <SectionReveal><Footer /></SectionReveal>
 

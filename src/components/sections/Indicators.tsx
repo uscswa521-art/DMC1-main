@@ -10,7 +10,7 @@ export function Indicators() {
     <section id="indicators" className="relative py-32 bg-[#050508]">
       <div className="absolute inset-0 scanline-bg opacity-10 pointer-events-none" />
 
-      <div className="container px-6 lg:px-12">
+      <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-white mb-6 leading-snug">
             {t.indicators.headingPart1}<br />

@@ -27,7 +27,7 @@ const STATS = [
 const NUM_AXES = 6;
 const CX = 200;
 const CY = 200;
-const MAX_R = 120;
+const MAX_R = 148;
 const LEVELS = 5;
 
 function toRad(deg: number) { return (deg * Math.PI) / 180; }
@@ -451,7 +451,7 @@ function RadarChart() {
   });
 
   return (
-    <svg viewBox="0 0 400 400" className="w-full max-w-[440px] mx-auto">
+    <svg viewBox="20 10 360 380" className="w-full mx-auto">
       {/* Axis lines */}
       {Array.from({ length: NUM_AXES }, (_, i) => {
         const end = getPoint(i, 1);
@@ -497,25 +497,17 @@ function RadarChart() {
         style={{ filter: "drop-shadow(0 0 6px rgba(13,242,88,0.8))" }} />
 
       {/* Center label */}
-      <text x={CX} y={CY - 9} textAnchor="middle" fill="rgba(13,242,88,0.95)"
-        fontSize="12" fontFamily="ui-monospace, monospace" fontWeight="800" letterSpacing="3">
+      <text x={CX} y={CY - 9} textAnchor="middle" fill="rgba(255,255,255,0.95)"
+        fontSize="12" fontFamily="'Space Grotesk', sans-serif" fontWeight="800" letterSpacing="3">
         BITUNIX
-      </text>
-      <text x={CX} y={CY + 9} textAnchor="middle" fill="rgba(255,255,255,0.35)"
-        fontSize="7" fontFamily="ui-monospace, monospace" letterSpacing="2">
-        PLATFORM
       </text>
 
       {/* Axis labels + animated values */}
       {labels.map((l, i) => (
         <g key={i}>
-          <text x={l.x} y={l.y - 8} textAnchor="middle" dominantBaseline="middle"
-            fill="rgba(255,255,255,0.85)" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="600">
+          <text x={l.x} y={l.y} textAnchor="middle" dominantBaseline="middle"
+            fill="rgba(255,255,255,0.85)" fontSize="11" fontFamily="'Space Grotesk', sans-serif" fontWeight="600">
             {l.label}
-          </text>
-          <text x={l.x} y={l.y + 9} textAnchor="middle" dominantBaseline="middle"
-            fill="rgba(13,242,88,0.9)" fontSize="10" fontFamily="ui-monospace, monospace">
-            {l.value}
           </text>
         </g>
       ))}
@@ -530,7 +522,7 @@ export function BitunixPartner() {
     <section id="bitunix" className="relative py-32 bg-[#050508] overflow-hidden">
       <div className="absolute inset-0 parallax-wireframe opacity-10" />
 
-      <div className="container px-6 lg:px-12">
+      <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           {/* Left: text content */}
           <div className="lg:w-1/2 space-y-10">
@@ -566,7 +558,7 @@ export function BitunixPartner() {
 
           {/* Right: hexagonal radar chart */}
           <div className="lg:w-1/2 flex items-center justify-center">
-            <div className="relative w-full max-w-[480px]">
+            <div className="relative w-full">
               {/* Background glow */}
               <div className="absolute inset-[20%] rounded-full bg-neon-green/5 blur-3xl pointer-events-none" />
               <RadarChart />

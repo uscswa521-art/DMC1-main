@@ -1,21 +1,26 @@
 
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Globe, ChevronDown, Zap, Eye, BarChart3, Play, Check } from "lucide-react";
 import { LANGUAGES } from "@/lib/i18n";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { IntroScreen } from "@/components/IntroScreen";
 
 // ── Per-section popup panels ──────────────────────────────
 
-function PopupAbout({ t }: { t: any }) {
+function PopupAbout({ t, onAboutClick }: { t: any; onAboutClick: () => void }) {
   return (
     <div className="p-5 w-64 space-y-3">
-      <h4 className="text-neon-green font-headline font-bold text-sm border-b border-neon-green/15 pb-2.5 truncate">
+      <button
+        onClick={onAboutClick}
+        className="w-full text-left text-neon-green font-headline font-bold text-sm border-b border-neon-green/15 pb-2.5 truncate hover:text-white transition-colors group/link"
+      >
         {t.about.heading}
-      </h4>
+        <span className="ml-1 opacity-0 group-hover/link:opacity-100 transition-opacity text-xs">→</span>
+      </button>
       <div className="space-y-2">
         <p className="text-white/55 text-[11px] leading-relaxed line-clamp-2">{t.about.log001}</p>
         <p className="text-white/55 text-[11px] leading-relaxed line-clamp-2">{t.about.log002}</p>
@@ -211,9 +216,9 @@ function PopupFAQ({ t }: { t: any }) {
 
 // ── Popup content router ──────────────────────────────────
 
-function PopupContent({ href, t }: { href: string; t: any }) {
+function PopupContent({ href, t, onAboutClick }: { href: string; t: any; onAboutClick: () => void }) {
   switch (href) {
-    case '#about':        return <PopupAbout t={t} />;
+    case '#about':        return <PopupAbout t={t} onAboutClick={onAboutClick} />;
     case '#advantages':   return <PopupAdvantages t={t} />;
     case '#indicators':   return <PopupIndicators t={t} />;
     case '#training':     return <PopupTraining t={t} />;
@@ -231,16 +236,25 @@ type Align = 'left' | 'center' | 'right';
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showTransition, setShowTransition] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { lang, setLang, t } = useLanguage();
 
+  const handleAboutClick = useCallback(() => {
+    setShowTransition(true);
+  }, []);
+
+  const handleTransitionComplete = useCallback(() => {
+    window.location.href = '/about';
+  }, []);
+
   const NAV_LINKS: { name: string; href: string; align: Align }[] = [
-    { name: t.nav.about,        href: '#about',        align: 'left'   },
     { name: t.nav.advantages,   href: '#advantages',   align: 'left'   },
-    { name: t.nav.indicators,   href: '#indicators',   align: 'center' },
+    { name: t.nav.indicators,   href: '#indicators',   align: 'left'   },
     { name: t.nav.training,     href: '#training',     align: 'center' },
-    { name: t.nav.bitunix,      href: '#bitunix',      align: 'right'  },
+    { name: t.nav.bitunix,      href: '#bitunix',      align: 'center' },
     { name: t.nav.testimonials, href: '#testimonials', align: 'right'  },
+    { name: '關於DMC',           href: '#about',        align: 'right'  },
     { name: t.nav.faq,          href: '#faq',          align: 'right'  },
   ];
 
@@ -264,11 +278,14 @@ export function Navigation() {
 
   return (
     <>
+    {showTransition && (
+      <IntroScreen onComplete={handleTransitionComplete} />
+    )}
     <nav className={cn(
       "fixed top-0 w-full z-50 transition-all duration-300 glass border-b",
       isScrolled ? "border-neon-green/50" : "border-transparent"
     )}>
-      <div className="container px-6 lg:px-12">
+      <div className="container mx-auto px-6 lg:px-12">
       <div className={cn(
         "flex items-center justify-between transition-all duration-300",
         isScrolled ? "py-2" : "py-4"
@@ -277,7 +294,13 @@ export function Navigation() {
         {/* Logo */}
         <div
           className="flex items-center cursor-pointer group"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => {
+            if (window.location.pathname === '/') {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              window.location.href = '/';
+            }
+          }}
         >
           <div className="flex items-center gap-2.5">
             <div className="relative w-10 h-10 rounded-full overflow-hidden border border-neon-green/30 shadow-[0_0_10px_rgba(13,242,88,0.25)]">
@@ -302,12 +325,21 @@ export function Navigation() {
             <div key={link.href} className="relative group/nav">
 
               {/* Link text */}
+              {link.href === '#about' ? (
+                <button
+                  onClick={handleAboutClick}
+                  className="text-xs uppercase tracking-wider text-white/80 hover:text-neon-green transition-colors font-code font-semibold block py-1 whitespace-nowrap"
+                >
+                  {link.name}
+                </button>
+              ) : (
               <a
                 href={link.href}
                 className="text-xs uppercase tracking-wider text-white/80 hover:text-neon-green transition-colors font-code font-semibold block py-1 whitespace-nowrap"
               >
                 {link.name}
               </a>
+              )}
 
               {/* ── Hover popup ── */}
               <div className={cn(
@@ -333,7 +365,7 @@ export function Navigation() {
                                            'left-1/2 -translate-x-1/2'
                 )} />
 
-                <PopupContent href={link.href} t={t} />
+                <PopupContent href={link.href} t={t} onAboutClick={handleAboutClick} />
               </div>
             </div>
           ))}

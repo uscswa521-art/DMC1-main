@@ -17,7 +17,7 @@ export function TrainingMatrix() {
 
   return (
     <section id="training" className="relative py-32 bg-[#1A201C]">
-      <div className="container px-6 lg:px-12">
+      <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
           <div className="space-y-4">
             <h2 className="text-4xl md:text-5xl font-headline font-bold text-white leading-snug">{t.training.heading}</h2>

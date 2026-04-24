@@ -20,7 +20,7 @@ export function Testimonials() {
 
   return (
     <section id="testimonials" className="relative py-20 bg-[#1A201C]">
-      <div className="container px-6 lg:px-12">
+      <div className="container mx-auto px-6 lg:px-12">
 
         {/* ── Clickable header ── */}
         <button

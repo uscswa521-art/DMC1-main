@@ -16,7 +16,7 @@ export function FAQ() {
 
   return (
     <section id="faq" className="relative py-20 bg-[#050508]">
-      <div className="container px-6 lg:px-12 max-w-4xl">
+      <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
 
         {/* ── Clickable header ── */}
         <button
