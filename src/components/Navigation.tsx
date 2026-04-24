@@ -216,7 +216,7 @@ function PopupFAQ({ t }: { t: any }) {
 
 // ── Popup content router ──────────────────────────────────
 
-function PopupContent({ href, t, onAboutClick }: { href: string; t: any; onAboutClick: () => void; }) {
+function PopupContent({ href, t, onAboutClick, onPageLink }: { href: string; t: any; onAboutClick: () => void; onPageLink: (url: string) => void; }) {
   switch (href) {
     case '#about':        return <PopupAbout t={t} onAboutClick={onAboutClick} />;
     case '#advantages':   return <PopupAdvantages t={t} />;
@@ -233,12 +233,16 @@ function PopupContent({ href, t, onAboutClick }: { href: string; t: any; onAbout
 
 type Align = 'left' | 'center' | 'right';
 
-// Pages that use CyberBoot transition instead of hash-scroll
+// Pages that use CyberBoot transition (only 關於DMC)
 const TRANSITION_PAGES: Record<string, string> = {
+  '#about': '/about',
+};
+
+// Pages that navigate directly (no animation)
+const PAGE_LINKS: Record<string, string> = {
   '#indicators':   '/indicators',
   '#training':     '/training',
   '#testimonials': '/testimonials',
-  '#about':        '/about',
   '#faq':          '/faq',
 };
 
@@ -347,6 +351,13 @@ export function Navigation() {
                 >
                   {link.name}
                 </button>
+              ) : PAGE_LINKS[link.href] ? (
+                <a
+                  href={PAGE_LINKS[link.href]}
+                  className="text-xs uppercase tracking-wider text-white/80 hover:text-neon-green transition-colors font-code font-semibold block py-1 whitespace-nowrap"
+                >
+                  {link.name}
+                </a>
               ) : (
                 <a
                   href={link.href}
@@ -380,7 +391,12 @@ export function Navigation() {
                                            'left-1/2 -translate-x-1/2'
                 )} />
 
-                <PopupContent href={link.href} t={t} onAboutClick={() => triggerTransition(TRANSITION_PAGES[link.href] ?? '/about')} />
+                <PopupContent
+                  href={link.href}
+                  t={t}
+                  onAboutClick={() => triggerTransition('/about')}
+                  onPageLink={(url) => { window.location.href = url; }}
+                />
               </div>
             </div>
           ))}
