@@ -23,7 +23,7 @@ export function Footer() {
             hover:shadow-[0_0_60px_rgba(158,214,0,0.65),0_0_100px_rgba(13,242,88,0.35)]
             hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
         >
-          點我註冊 Bitunix｜進 DMC 社群領完整實戰教學
+          {t.hero.ctaRegister}
           <ArrowRight
             size={24}
             className="shrink-0 group-hover:translate-x-1.5 transition-transform duration-300"
@@ -36,19 +36,19 @@ export function Footer() {
       <div className="container px-6 lg:px-12 pb-20">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start space-y-4">
-            <div className="flex items-center gap-4">
-              <div className="font-headline font-bold text-neon-green flex items-baseline">
-                <span className="text-4xl tracking-tighter">DMC</span>
-                <span className="text-xl font-medium whitespace-pre">  加密交易</span>
-              </div>
-              <div className="relative w-14 h-14 rounded-full overflow-hidden border border-neon-green/30 shadow-[0_0_12px_rgba(13,242,88,0.25)]">
+            <div className="flex items-center gap-2.5">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-neon-green/30 shadow-[0_0_10px_rgba(13,242,88,0.25)]">
                 <Image
                   src="/dmc-logo.png"
                   alt="DMC Coin Footer"
-                  width={56}
-                  height={56}
+                  width={40}
+                  height={40}
                   className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
                 />
+              </div>
+              <div className="font-headline font-bold text-neon-green flex items-baseline">
+                <span className="text-2xl tracking-tighter">DMC</span>
+                <span className="text-sm font-medium whitespace-nowrap ml-1">加密交易術</span>
               </div>
             </div>
             <p className="text-xs font-code text-muted-foreground uppercase tracking-widest leading-relaxed">

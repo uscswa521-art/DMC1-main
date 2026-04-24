@@ -7,17 +7,17 @@ export interface LangMeta {
 }
 
 export const LANGUAGES: LangMeta[] = [
-  { code: 'ar',    label: 'العربية',    dir: 'rtl' },
-  { code: 'zh-CN', label: '简体中文',   dir: 'ltr' },
-  { code: 'zh-TW', label: '繁體中文',   dir: 'ltr' },
-  { code: 'nl',    label: 'Nederlands', dir: 'ltr' },
   { code: 'en',    label: 'English',    dir: 'ltr' },
-  { code: 'fr',    label: 'Français',   dir: 'ltr' },
+  { code: 'zh-TW', label: '繁體中文',   dir: 'ltr' },
+  { code: 'zh-CN', label: '简体中文',   dir: 'ltr' },
+  { code: 'ar',    label: 'العربية',    dir: 'rtl' },
   { code: 'de',    label: 'Deutsch',    dir: 'ltr' },
+  { code: 'es',    label: 'Español',    dir: 'ltr' },
+  { code: 'fr',    label: 'Français',   dir: 'ltr' },
   { code: 'it',    label: 'Italiano',   dir: 'ltr' },
+  { code: 'nl',    label: 'Nederlands', dir: 'ltr' },
   { code: 'pt',    label: 'Português',  dir: 'ltr' },
   { code: 'ru',    label: 'Русский',    dir: 'ltr' },
-  { code: 'es',    label: 'Español',    dir: 'ltr' },
 ];
 
 export interface Translations {
@@ -36,6 +36,7 @@ export interface Translations {
     body: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    ctaRegister: string;
   };
   about: {
     heading: string;
@@ -101,11 +102,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: '交易是自由人生的起步',
-      subheadline: '我們不是教你畫線，而是讓你真正看懂主力思維。',
-      body: '厭倦了一成不變的工作？市面資訊太雜讓你走錯方向？我們用最簡單的方式，幫你重新建立專屬交易系統，從「亂猜行情」進化為「穩定獲利」。你只需要一個真正能陪你走完這段路的環境。',
+      headline: '交易是甚麼?',
+      subheadline: '我們不是教你畫線\n而是讓你真正看懂主力思維 ，跟著聰明錢走。',
+      body: '沒接觸過交易也能學會加密貨幣合約交易！\n1秒教你如何用「DMC策略」',
       ctaPrimary: '加入社群 | 看每日盤面策略+免費教學',
       ctaSecondary: '點我私訊 | 直送交易策略+入門影片',
+      ctaRegister: '點我註冊 Bitunix｜進 DMC 社群領完整實戰教學',
     },
     about: {
       heading: '我是誰？認識大衛',
@@ -204,11 +206,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: '交易是自由人生的起步',
-      subheadline: '我们不是教你画线，而是让你真正看懂主力思维。',
-      body: '厌倦了一成不变的工作？市面资讯太杂让你走错方向？我们用最简单的方式，帮你重新建立专属交易系统，从「乱猜行情」进化为「稳定获利」。你只需要一个真正能陪你走完这段路的环境。',
+      headline: '交易是什么?',
+      subheadline: '我们不是教你画线\n而是让你真正看懂主力思维 ，跟着聪明钱走。',
+      body: '没接触过交易也能学会加密货币合约交易！\n1秒教你如何用「DMC策略」',
       ctaPrimary: '加入社群 | 看每日盘面策略+免费教学',
       ctaSecondary: '点我私信 | 直送交易策略+入门视频',
+      ctaRegister: '点我注册 Bitunix｜进 DMC 社群领完整实战教学',
     },
     about: {
       heading: '我是谁？认识大卫',
@@ -307,11 +310,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'التداول هو أول خطوة نحو حياة حرة',
-      subheadline: 'نحن لا نعلمك رسم الخطوط، بل نعلمك فهم تفكير الكبار حقًا.',
-      body: 'هل سئمت من العمل الرتيب؟ هل أربكتك المعلومات المتضاربة؟ نساعدك على بناء نظام تداول خاص بك من الصفر — من التخمين العشوائي إلى الأرباح المستدامة. كل ما تحتاجه هو البيئة المناسبة.',
+      headline: 'ما هو التداول؟',
+      subheadline: 'نحن لا نعلمك رسم الخطوط، بل نعلمك فهم الأموال الذكية حقًا واتباعها.',
+      body: 'يمكن لأي شخص تعلم تداول عقود العملات المشفرة — حتى بدون خبرة!\nنعلمك كيفية استخدام «استراتيجية DMC» في ثانية واحدة',
       ctaPrimary: 'انضم للمجتمع | استراتيجيات يومية + دروس مجانية',
       ctaSecondary: 'راسلنا | استراتيجيات التداول + فيديوهات للمبتدئين',
+      ctaRegister: 'سجّل في Bitunix｜انضم لمجتمع DMC واحصل على الدليل الكامل',
     },
     about: {
       heading: 'من أنا؟ تعرف على ديفيد',
@@ -410,11 +414,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'Handelen is de Eerste Stap naar een Vrij Leven',
-      subheadline: 'We leren je geen lijnen tekenen — we leren je slim geld echt begrijpen.',
-      body: 'Moe van dezelfde routine? Overweldigd door tegenstrijdige marktinformatie? We helpen je een eigen handelssysteem op te bouwen — van willekeurig gokken naar consistente winst. Alles wat je nodig hebt is de juiste omgeving.',
+      headline: 'Wat is Trading?',
+      subheadline: 'We leren je geen lijnen tekenen — we leren je slim geld echt begrijpen en volgen.',
+      body: 'Iedereen kan crypto futures trading leren — ook zonder ervaring!\nLeer de "DMC Strategie" in slechts 1 seconde',
       ctaPrimary: 'Lid worden | Dagelijkse Strategieën + Gratis Lessen',
       ctaSecondary: 'Stuur Bericht | Handelsstrategieën + Introductievideo\'s',
+      ctaRegister: 'Registreer op Bitunix｜Word lid van de DMC Community',
     },
     about: {
       heading: 'Wie Ben Ik? Leer David Kennen',
@@ -513,11 +518,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'Trading is the First Step to a Free Life',
-      subheadline: 'We don\'t teach you to draw lines — we teach you to truly understand smart money.',
-      body: 'Tired of the same old 9-to-5? Overwhelmed by conflicting market information? We help you rebuild a trading system from the ground up — evolving from random guesses to consistent profits. All you need is the right environment to guide you.',
+      headline: 'What is Trading?',
+      subheadline: 'We don\'t teach you to draw lines — we teach you to truly understand smart money and follow it.',
+      body: 'Anyone can learn crypto futures trading — even with zero experience!\nLearn the "DMC Strategy" in just 1 second',
       ctaPrimary: 'Join Community | Daily Strategies + Free Lessons',
       ctaSecondary: 'Message Us | Trading Strategies + Intro Videos',
+      ctaRegister: 'Register on Bitunix｜Join DMC Community & Get Full Trading Guide',
     },
     about: {
       heading: 'Who Am I? Meet David',
@@ -616,11 +622,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'Le Trading est le Premier Pas vers une Vie Libre',
-      subheadline: 'Nous ne vous apprenons pas à tracer des lignes — nous vous apprenons à comprendre les institutionnels.',
-      body: 'Fatigué de la routine quotidienne? Dépassé par des informations de marché contradictoires? Nous vous aidons à construire votre propre système de trading — de suppositions aléatoires à des profits réguliers. Tout ce dont vous avez besoin, c\'est du bon environnement.',
+      headline: 'Qu\'est-ce que le Trading?',
+      subheadline: 'Nous ne vous apprenons pas à tracer des lignes — nous vous apprenons à comprendre les institutionnels et à les suivre.',
+      body: 'Tout le monde peut apprendre le trading de crypto futures — même sans expérience!\nApprenez la "Stratégie DMC" en seulement 1 seconde',
       ctaPrimary: 'Rejoindre la Communauté | Stratégies quotidiennes + Cours gratuits',
       ctaSecondary: 'Nous Contacter | Stratégies de Trading + Vidéos d\'Introduction',
+      ctaRegister: 'S\'inscrire sur Bitunix｜Rejoindre la Communauté DMC',
     },
     about: {
       heading: 'Qui Suis-Je? Rencontrez David',
@@ -719,11 +726,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'Trading ist der Erste Schritt zu einem Freien Leben',
-      subheadline: 'Wir lehren Sie nicht, Linien zu zeichnen — wir lehren Sie, das Smart Money wirklich zu verstehen.',
-      body: 'Erschöpft von derselben Routine? Überwältigt von widersprüchlichen Marktinformationen? Wir helfen Ihnen, ein eigenes Handelssystem aufzubauen — von zufälligen Vermutungen zu konsistenten Gewinnen. Alles was Sie brauchen ist die richtige Umgebung.',
+      headline: 'Was ist Trading?',
+      subheadline: 'Wir lehren Sie nicht, Linien zu zeichnen — wir lehren Sie, das Smart Money wirklich zu verstehen und zu folgen.',
+      body: 'Jeder kann Krypto-Futures-Trading lernen — auch ohne Erfahrung!\nLernen Sie die "DMC-Strategie" in nur 1 Sekunde',
       ctaPrimary: 'Community Beitreten | Tägliche Strategien + Kostenlose Lektionen',
       ctaSecondary: 'Nachricht Senden | Handelsstrategien + Einführungsvideos',
+      ctaRegister: 'Bei Bitunix Registrieren｜DMC Community Beitreten',
     },
     about: {
       heading: 'Wer Bin Ich? Treffe David',
@@ -822,11 +830,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'Il Trading è il Primo Passo verso una Vita Libera',
-      subheadline: 'Non ti insegniamo a disegnare linee — ti insegniamo a capire davvero lo smart money.',
-      body: 'Stanco della solita routine? Sopraffatto da informazioni di mercato contrastanti? Ti aiutiamo a costruire il tuo sistema di trading — dalle congetture casuali ai profitti costanti. Tutto ciò di cui hai bisogno è l\'ambiente giusto.',
+      headline: 'Cos\'è il Trading?',
+      subheadline: 'Non ti insegniamo a disegnare linee — ti insegniamo a capire davvero lo smart money e a seguirlo.',
+      body: 'Chiunque può imparare il trading di futures crypto — anche senza esperienza!\nImpara la "Strategia DMC" in soli 1 secondo',
       ctaPrimary: 'Unisciti alla Community | Strategie Quotidiane + Lezioni Gratuite',
       ctaSecondary: 'Contattaci | Strategie di Trading + Video Introduttivi',
+      ctaRegister: 'Registrati su Bitunix｜Unisciti alla Community DMC',
     },
     about: {
       heading: 'Chi Sono? Conosci David',
@@ -925,11 +934,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'O Trading é o Primeiro Passo para uma Vida Livre',
-      subheadline: 'Não te ensinamos a desenhar linhas — ensinamos a entender o smart money de verdade.',
-      body: 'Cansado da mesma rotina? Confuso com informações de mercado contraditórias? Ajudamos você a construir seu próprio sistema de trading — evoluindo de palpites aleatórios para lucros consistentes. Tudo que você precisa é do ambiente certo.',
+      headline: 'O que é o Trading?',
+      subheadline: 'Não te ensinamos a desenhar linhas — ensinamos a entender o smart money de verdade e a segui-lo.',
+      body: 'Qualquer pessoa pode aprender a negociar futuros de criptomoedas — mesmo sem experiência!\nAprenda a "Estratégia DMC" em apenas 1 segundo',
       ctaPrimary: 'Entrar na Comunidade | Estratégias Diárias + Aulas Gratuitas',
       ctaSecondary: 'Enviar Mensagem | Estratégias de Trading + Vídeos Introdutórios',
+      ctaRegister: 'Registrar no Bitunix｜Entre na Comunidade DMC',
     },
     about: {
       heading: 'Quem Sou Eu? Conheça David',
@@ -1028,11 +1038,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'Трейдинг — первый шаг к свободной жизни',
-      subheadline: 'Мы не учим рисовать линии — мы учим понимать умные деньги по-настоящему.',
-      body: 'Устали от одной и той же рутины? Запутались в противоречивой рыночной информации? Мы помогаем вам построить собственную торговую систему — от случайных догадок до стабильной прибыли. Всё, что вам нужно — правильная среда.',
+      headline: 'Что такое трейдинг?',
+      subheadline: 'Мы не учим рисовать линии — мы учим понимать умные деньги по-настоящему и следовать за ними.',
+      body: 'Каждый может научиться торговле крипто-фьючерсами — даже без опыта!\nУзнайте «Стратегию DMC» всего за 1 секунду',
       ctaPrimary: 'Присоединиться | Ежедневные стратегии + Бесплатные уроки',
       ctaSecondary: 'Написать нам | Торговые стратегии + Вводные видео',
+      ctaRegister: 'Зарегистрироваться на Bitunix｜Присоединиться к сообществу DMC',
     },
     about: {
       heading: 'Кто я? Знакомьтесь — Дэвид',
@@ -1131,11 +1142,12 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: 'El Trading es el Primer Paso hacia una Vida Libre',
-      subheadline: 'No te enseñamos a trazar líneas — te enseñamos a entender el dinero inteligente de verdad.',
-      body: '¿Cansado de la misma rutina? ¿Abrumado por información de mercado contradictoria? Te ayudamos a construir tu propio sistema de trading — evolucionando de suposiciones aleatorias a ganancias consistentes. Todo lo que necesitas es el entorno adecuado.',
+      headline: '¿Qué es el Trading?',
+      subheadline: 'No te enseñamos a trazar líneas — te enseñamos a entender el dinero inteligente de verdad y a seguirlo.',
+      body: '¡Cualquiera puede aprender a operar futuros de criptomonedas — incluso sin experiencia!\nAprende la "Estrategia DMC" en solo 1 segundo',
       ctaPrimary: 'Unirse a la Comunidad | Estrategias Diarias + Lecciones Gratuitas',
       ctaSecondary: 'Enviar Mensaje | Estrategias de Trading + Videos Introductorios',
+      ctaRegister: 'Regístrate en Bitunix｜Únete a la Comunidad DMC',
     },
     about: {
       heading: '¿Quién Soy? Conoce a David',

@@ -257,13 +257,24 @@ export function Hero() {
             {t.hero.headline}
           </h1>
 
-          <p className="text-xl md:text-2xl font-headline text-neon-chartreuse/90 border-l-4 border-neon-green pl-6 py-2 leading-snug">
+          <p className="text-xl md:text-2xl font-headline text-neon-chartreuse/90 border-l-4 border-neon-green pl-6 py-2 leading-snug whitespace-pre-line">
             {t.hero.subheadline}
           </p>
 
-          <p className="text-muted-foreground text-base md:text-lg font-body leading-relaxed">
+          <p className="text-muted-foreground text-base md:text-lg font-body leading-relaxed whitespace-pre-line">
             {t.hero.body}
           </p>
+
+          <a
+            href="#"
+            className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-headline font-black text-base text-black
+              bg-gradient-to-r from-[#b8e000] via-[#9ed600] to-[#0DF258]
+              shadow-[0_4px_24px_rgba(158,214,0,0.45)]
+              hover:shadow-[0_4px_36px_rgba(158,214,0,0.7)]
+              hover:px-10 active:scale-[0.97] transition-all duration-300 whitespace-nowrap"
+          >
+            {t.hero.ctaRegister}
+          </a>
         </div>
 
         {/* ── Right: Animated DMC × BITUNIX ── */}

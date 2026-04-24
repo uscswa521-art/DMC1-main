@@ -383,19 +383,6 @@ export function Navigation() {
       </div>
     </nav>
 
-    {/* ── 獨立 CTA 欄（固定，緊貼導航欄下方，靠右） ── */}
-    <div className="fixed top-[112px] right-4 z-40 hidden lg:block">
-      <a
-        href="#"
-        className="group inline-flex items-center gap-2 px-7 py-2.5 rounded-full font-headline font-black text-sm text-black
-          bg-gradient-to-r from-[#b8e000] via-[#9ed600] to-[#0DF258]
-          shadow-[0_4px_24px_rgba(158,214,0,0.45)]
-          hover:shadow-[0_4px_36px_rgba(158,214,0,0.7)]
-          hover:px-9 active:scale-[0.97] transition-all duration-300 whitespace-nowrap"
-      >
-        點我註冊 Bitunix｜進 DMC 社群領完整實戰教學
-      </a>
-    </div>
     </>
   );
 }
