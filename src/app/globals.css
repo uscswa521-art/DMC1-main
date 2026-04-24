@@ -91,6 +91,50 @@ html {
   50%  { box-shadow: 0 0 50px rgba(13,242,88,0.3), inset 0 0 30px rgba(13,242,88,0.1); }
   100% { box-shadow: 0 0 20px rgba(13,242,88,0.1), inset 0 0 20px rgba(13,242,88,0.05); }
 }
+@keyframes orbitalSpin {
+  from { transform: rotateZ(0deg); }
+  to   { transform: rotateZ(360deg); }
+}
+@keyframes scanSweep {
+  0%   { top: 0%;    opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 100%;  opacity: 0; }
+}
+@keyframes dmcGlowPulse {
+  0%,100% {
+    text-shadow:
+      0 0 8px  rgba(13,242,88,1),
+      0 0 24px rgba(13,242,88,0.8),
+      0 0 50px rgba(13,242,88,0.5),
+      0 0 90px rgba(13,242,88,0.25);
+  }
+  50% {
+    text-shadow:
+      0 0 16px rgba(13,242,88,1),
+      0 0 48px rgba(13,242,88,1),
+      0 0 90px rgba(13,242,88,0.7),
+      0 0 160px rgba(13,242,88,0.4),
+      0 0 240px rgba(13,242,88,0.15);
+  }
+}
+@keyframes xBurst {
+  0%,100% {
+    text-shadow:
+      0 0 12px rgba(200,224,82,1),
+      0 0 30px rgba(200,224,82,0.8),
+      0 0 60px rgba(200,224,82,0.4);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 24px rgba(200,224,82,1),
+      0 0 60px rgba(200,224,82,1),
+      0 0 120px rgba(200,224,82,0.6),
+      0 0 200px rgba(200,224,82,0.3);
+    transform: scale(1.08);
+  }
+}
 
 /* ── Intro / Loading Screen animations ── */
 @keyframes intro-drawLine {
