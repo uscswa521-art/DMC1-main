@@ -6,12 +6,12 @@ import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const TESTIMONIALS = [
-  { pnl: "+517.78%", market: "BTC/USDT", user: "User_4921", seed: 1 },
-  { pnl: "+430.20%", market: "ETH/USDT", user: "CryptoNinja", seed: 2 },
-  { pnl: "+215.11%", market: "SOL/USDT", user: "DMC_Whale", seed: 3 },
-  { pnl: "+892.44%", market: "PEPE/USDT", user: "DiamondHands", seed: 4 },
-  { pnl: "+310.05%", market: "BNB/USDT", user: "MarketScanner", seed: 5 },
-  { pnl: "+154.29%", market: "XRP/USDT", user: "LogicTrader", seed: 6 },
+  { pnl: "+517.78%", market: "BTC/USDT", user: "User_4921",    seed: 1, h: 380 },
+  { pnl: "+430.20%", market: "ETH/USDT", user: "CryptoNinja",  seed: 2, h: 420 },
+  { pnl: "+215.11%", market: "SOL/USDT", user: "DMC_Whale",    seed: 3, h: 340 },
+  { pnl: "+892.44%", market: "PEPE/USDT", user: "DiamondHands",seed: 4, h: 460 },
+  { pnl: "+310.05%", market: "BNB/USDT", user: "MarketScanner",seed: 5, h: 360 },
+  { pnl: "+154.29%", market: "XRP/USDT", user: "LogicTrader",  seed: 6, h: 400 },
 ];
 
 export function Testimonials() {
@@ -29,7 +29,7 @@ export function Testimonials() {
         >
           <div className="flex flex-col items-center gap-4 mb-2">
             <div className="flex items-center gap-4">
-              <h2 className="text-4xl md:text-5xl font-headline font-bold text-white group-hover:text-neon-green transition-colors duration-300">
+              <h2 className="text-4xl md:text-5xl font-headline font-bold text-white leading-snug group-hover:text-neon-green transition-colors duration-300">
                 {t.testimonials.heading}
               </h2>
               <ChevronDown
@@ -57,16 +57,16 @@ export function Testimonials() {
             {TESTIMONIALS.map((item, idx) => (
               <Card
                 key={idx}
-                className="break-inside-avoid bg-[#050508] border border-neon-green/20 group hover:border-neon-green transition-all duration-300"
+                className="break-inside-avoid bg-[#050508] border border-neon-green/15 group hover:border-neon-green transition-all duration-300"
               >
                 <div className="p-4 border-b border-white/5 flex justify-between items-center">
-                  <span className="font-code text-[10px] text-neon-green/50">PACKET_ID: 0x{idx}F9A</span>
-                  <span className="font-code text-[10px] text-white/30 uppercase">VERIFIED</span>
+                  <span className="font-code text-xs text-neon-green/50">PACKET_ID: 0x{idx}F9A</span>
+                  <span className="font-code text-xs text-white/40 uppercase">VERIFIED</span>
                 </div>
 
                 <div className="p-2">
                   <img
-                    src={`https://picsum.photos/seed/profit${item.seed}/600/${Math.floor(Math.random() * 400) + 300}`}
+                    src={`https://picsum.photos/seed/profit${item.seed}/600/${item.h}`}
                     alt={`DMC加密貨幣交易社群群友獲利截圖 ${item.user} ${item.market} 獲利${item.pnl}`}
                     className="w-full h-auto rounded grayscale group-hover:grayscale-0 transition-all duration-500"
                     data-ai-hint="trading pnl screenshot"
@@ -76,11 +76,11 @@ export function Testimonials() {
                 <div className="p-6 space-y-4">
                   <div className="flex justify-between items-end">
                     <div>
-                      <p className="text-[10px] font-code text-muted-foreground uppercase">Profit Rate:</p>
-                      <p className="text-3xl font-headline font-black text-neon-green">{item.pnl}</p>
+                      <p className="text-xs font-code text-muted-foreground uppercase">Profit Rate:</p>
+                      <p className="text-2xl font-headline font-black text-neon-green">{item.pnl}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-[10px] font-code text-muted-foreground uppercase">Market:</p>
+                      <p className="text-xs font-code text-muted-foreground uppercase">Market:</p>
                       <p className="text-sm font-code text-white">{item.market}</p>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ export function Testimonials() {
                   <div className="pt-4 border-t border-white/5 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
-                      <span className="text-[10px] font-code text-white/70">{item.user}</span>
+                      <span className="text-xs font-code text-white/70">{item.user}</span>
                     </div>
                     <div className="flex gap-1">
                       {[1, 2, 3, 4, 5].map(s => (
@@ -105,7 +105,7 @@ export function Testimonials() {
           <div className="flex justify-center mt-12">
             <button
               onClick={() => setOpen(false)}
-              className="flex items-center gap-2 text-xs font-code text-neon-green/50 hover:text-neon-green border border-neon-green/20 hover:border-neon-green/50 px-6 py-2.5 rounded transition-all duration-200"
+              className="flex items-center gap-2 text-xs font-code text-neon-green/50 hover:text-neon-green border border-neon-green/15 hover:border-neon-green/50 px-6 py-2.5 rounded transition-all duration-200"
             >
               <ChevronDown size={14} className="rotate-180" />
               COLLAPSE
