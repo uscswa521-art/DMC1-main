@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { IntroScreen } from "@/components/IntroScreen";
+import dynamic from "next/dynamic";
+
+const IntroScreen = dynamic(
+  () => import("@/components/IntroScreen").then((m) => m.IntroScreen),
+  { ssr: false }
+);
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";

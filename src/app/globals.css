@@ -62,3 +62,61 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* ── Intro / Loading Screen animations ── */
+@keyframes intro-drawLine {
+  from { stroke-dashoffset: var(--dl, 2000); }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes intro-glitchR {
+  0%,100% { clip-path: inset(5% 0 88% 0);  transform: translateX(-7px); }
+  20%     { clip-path: inset(42% 0 48% 0); transform: translateX(5px);  }
+  40%     { clip-path: inset(72% 0 14% 0); transform: translateX(-5px); }
+  60%     { clip-path: inset(18% 0 68% 0); transform: translateX(7px);  }
+  80%     { clip-path: inset(84% 0 4% 0);  transform: translateX(-4px); }
+}
+@keyframes intro-glitchC {
+  0%,100% { clip-path: inset(58% 0 28% 0); transform: translateX(7px);  }
+  25%     { clip-path: inset(8% 0 78% 0);  transform: translateX(-6px); }
+  50%     { clip-path: inset(82% 0 6% 0);  transform: translateX(5px);  }
+  75%     { clip-path: inset(32% 0 52% 0); transform: translateX(-7px); }
+}
+@keyframes intro-glitchW {
+  0%,85%,100% { clip-path: inset(0 0 0 0); transform: translateX(0);   }
+  87%         { clip-path: inset(28% 0 42% 0); transform: translateX(3px);  }
+  90%         { clip-path: inset(0 0 0 0);     transform: translateX(-2px); }
+  93%         { clip-path: inset(62% 0 8% 0);  transform: translateX(0);    }
+  96%         { clip-path: inset(0 0 0 0);     transform: translateX(2px);  }
+}
+@keyframes intro-shake {
+  0%,100% { transform: translate(0,0) rotate(0deg);           }
+  10%     { transform: translate(-3px, 1px) rotate(-0.2deg);  }
+  20%     { transform: translate(4px,-2px) rotate(0.2deg);    }
+  30%     { transform: translate(-2px, 3px) rotate(-0.1deg);  }
+  40%     { transform: translate(2px,-3px) rotate(0.15deg);   }
+  50%     { transform: translate(-4px, 2px) rotate(-0.2deg);  }
+  60%     { transform: translate(3px,-1px) rotate(0.1deg);    }
+  70%     { transform: translate(-1px, 4px) rotate(-0.15deg); }
+  80%     { transform: translate(3px,-2px) rotate(0.2deg);    }
+  90%     { transform: translate(-2px, 1px) rotate(-0.1deg);  }
+}
+@keyframes intro-textReveal {
+  from { opacity: 0; letter-spacing: 0.35em; filter: blur(8px); }
+  to   { opacity: 1; letter-spacing: 0.04em; filter: blur(0);  }
+}
+@keyframes intro-subtitleIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes intro-hudIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes intro-progressFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+@keyframes intro-cornerPulse {
+  0%,100% { opacity: 0.35; }
+  50%     { opacity: 0.9;  }
+}
