@@ -10,10 +10,8 @@ const IntroScreen = dynamic(
 
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
 import { Advantages } from "@/components/sections/Advantages";
 import { Indicators } from "@/components/sections/Indicators";
-import { TrainingMatrix } from "@/components/sections/TrainingMatrix";
 import { BitunixPartner } from "@/components/sections/BitunixPartner";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
@@ -46,9 +44,7 @@ export default function Home() {
 
         {/* Every section below gets the tile-shatter scroll reveal */}
         <SectionReveal><Advantages /></SectionReveal>
-        <SectionReveal><About /></SectionReveal>
         <SectionReveal><Indicators /></SectionReveal>
-        <SectionReveal><TrainingMatrix /></SectionReveal>
         <SectionReveal><BitunixPartner /></SectionReveal>
         <SectionReveal><Testimonials /></SectionReveal>
         <SectionReveal><FAQ /></SectionReveal>
