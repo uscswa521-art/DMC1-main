@@ -25,7 +25,7 @@ export function FAQ() {
         >
           <div className="flex flex-col items-center gap-4 mb-2">
             <div className="flex items-center gap-4">
-              <h2 className="text-4xl md:text-5xl font-headline font-bold text-white group-hover:text-neon-green transition-colors duration-300">
+              <h2 className="text-4xl md:text-5xl font-headline font-bold text-white leading-snug group-hover:text-neon-green transition-colors duration-300">
                 {t.faq.heading}
               </h2>
               <ChevronDown
@@ -54,13 +54,13 @@ export function FAQ() {
               <AccordionItem
                 key={idx}
                 value={`item-${idx}`}
-                className="border border-neon-green/10 bg-[#111713] rounded-lg overflow-hidden group data-[state=open]:border-neon-green transition-all"
+                className="border border-neon-green/15 bg-[#111713] rounded-lg overflow-hidden group data-[state=open]:border-neon-green transition-all"
               >
-                <AccordionTrigger className="px-6 py-6 hover:no-underline text-left text-white group-hover:text-neon-green transition-colors font-headline text-lg">
+                <AccordionTrigger className="px-6 py-6 hover:no-underline text-left text-white group-hover:text-neon-green transition-colors font-headline text-base leading-snug">
                   <span className="font-code mr-4 opacity-30">[{idx + 1}]</span>
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6 pt-0 text-muted-foreground font-body text-base leading-relaxed border-t border-neon-green/5 bg-black/20">
+                <AccordionContent className="px-6 pb-6 pt-0 text-muted-foreground font-body text-base leading-relaxed border-t border-neon-green/15 bg-black/20">
                   <div className="flex gap-4 pt-4">
                     <span className="text-neon-green font-code text-sm shrink-0 mt-1">RESPONSE_&gt;</span>
                     <p>{faq.a}</p>
@@ -74,7 +74,7 @@ export function FAQ() {
           <div className="flex justify-center mt-10">
             <button
               onClick={() => setOpen(false)}
-              className="flex items-center gap-2 text-xs font-code text-neon-green/50 hover:text-neon-green border border-neon-green/20 hover:border-neon-green/50 px-6 py-2.5 rounded transition-all duration-200"
+              className="flex items-center gap-2 text-xs font-code text-neon-green/50 hover:text-neon-green border border-neon-green/15 hover:border-neon-green/50 px-6 py-2.5 rounded transition-all duration-200"
             >
               <ChevronDown size={14} className="rotate-180" />
               COLLAPSE

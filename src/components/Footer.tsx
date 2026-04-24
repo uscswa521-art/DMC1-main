@@ -39,7 +39,7 @@ export function Footer() {
             <div className="flex items-center gap-4">
               <div className="font-headline font-bold text-neon-green flex items-baseline">
                 <span className="text-4xl tracking-tighter">DMC</span>
-                <span className="text-lg font-medium whitespace-pre">  加密交易</span>
+                <span className="text-xl font-medium whitespace-pre">  加密交易</span>
               </div>
               <div className="relative w-14 h-14 rounded-full overflow-hidden border border-neon-green/30 shadow-[0_0_12px_rgba(13,242,88,0.25)]">
                 <Image
@@ -51,22 +51,22 @@ export function Footer() {
                 />
               </div>
             </div>
-            <p className="text-[10px] font-code text-muted-foreground uppercase tracking-widest">
+            <p className="text-xs font-code text-muted-foreground uppercase tracking-widest leading-relaxed">
               {rightsText}
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
             {['Privacy Policy', 'Terms of Service', 'Risk Warning', 'System Logs'].map((item) => (
-              <a key={item} href="#" className="text-[10px] font-code text-white/40 hover:text-neon-green transition-colors uppercase tracking-widest">
+              <a key={item} href="#" className="text-xs font-code text-white/40 hover:text-neon-green transition-colors uppercase tracking-widest">
                 {item}
               </a>
             ))}
           </div>
 
-          <div className="flex items-center gap-3 text-white/20">
+          <div className="flex items-center gap-3 text-white/40">
             <Terminal size={14} />
-            <span className="text-[10px] font-code tracking-tighter">CONNECTION_SECURE // LATENCY: 22ms</span>
+            <span className="text-xs font-code tracking-tighter">CONNECTION_SECURE // LATENCY: 22ms</span>
           </div>
         </div>
       </div>

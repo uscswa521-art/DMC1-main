@@ -20,9 +20,9 @@ export function TrainingMatrix() {
       <div className="container px-6 lg:px-12">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
           <div className="space-y-4">
-            <h2 className="text-4xl md:text-5xl font-headline font-bold text-white">{t.training.heading}</h2>
+            <h2 className="text-4xl md:text-5xl font-headline font-bold text-white leading-snug">{t.training.heading}</h2>
           </div>
-          <p className="text-muted-foreground max-w-md font-body">
+          <p className="text-muted-foreground max-w-md font-body leading-relaxed">
             {t.training.subheading}
           </p>
         </div>
@@ -49,10 +49,10 @@ export function TrainingMatrix() {
               </div>
 
               <div className="absolute bottom-6 left-6 right-6">
-                <h4 className="text-xl font-headline font-bold text-white mb-2 group-hover:text-neon-green transition-colors">
+                <h4 className="text-xl font-headline font-bold text-white mb-2 leading-snug group-hover:text-neon-green transition-colors">
                   {video.title}
                 </h4>
-                <div className="flex items-center gap-2 text-[10px] font-code text-neon-chartreuse/60 overflow-hidden">
+                <div className="flex items-center gap-2 text-xs font-code text-neon-chartreuse/60 overflow-hidden">
                   <span className="group-hover:translate-x-0 -translate-x-full transition-transform duration-300">
                     &gt;_ PLAY VIDEO
                   </span>

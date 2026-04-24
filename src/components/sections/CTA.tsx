@@ -22,9 +22,9 @@ export function CTA() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-neon-green/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container px-6 lg:px-12 relative z-10 max-w-3xl">
-        <div className="bg-[#111713] border-4 border-neon-green/30 p-10 rounded-2xl shadow-[0_0_100px_rgba(13,242,88,0.1)] space-y-10">
+        <div className="bg-[#111713] border-4 border-neon-green/15 p-10 rounded-lg shadow-[0_0_40px_rgba(13,242,88,0.25)] space-y-10">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-headline font-black text-white">{t.cta.heading}</h2>
+            <h2 className="text-4xl md:text-5xl font-headline font-black text-white leading-snug">{t.cta.heading}</h2>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -69,7 +69,7 @@ export function CTA() {
               {t.cta.submitButton}
             </Button>
 
-            <p className="text-center text-[10px] font-code text-white/30 uppercase tracking-[0.3em]">
+            <p className="text-center text-xs font-code text-white/40 uppercase tracking-[0.3em]">
               Verification process may take up to 24 hours.
             </p>
           </form>

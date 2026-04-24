@@ -95,7 +95,7 @@ function TrendAnim() {
       {/* Sideways */}
       <polyline
         points="10,60 40,53 70,66 100,57 130,64 160,55 190,60"
-        fill="none" stroke="#cccc00" strokeWidth="2"
+        fill="none" stroke="rgba(158,214,0,0.35)" strokeWidth="2"
         strokeDasharray="220" opacity="0.35"
         style={{ animation: "drawPath 2.8s 1.8s ease-in-out infinite" }}
       />
@@ -130,10 +130,10 @@ export function Advantages() {
 
       <div className="container px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-white neon-glow">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-white neon-glow leading-snug">
             {t.advantages.heading}
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base leading-relaxed">
             {t.advantages.subheading}
           </p>
         </div>
@@ -145,7 +145,7 @@ export function Advantages() {
             return (
               <div
                 key={idx}
-                className="group relative bg-[#050508] border border-neon-green/10 p-8 hover:border-neon-green/50 transition-all duration-500 overflow-hidden"
+                className="group relative bg-[#050508] border border-neon-green/15 p-8 hover:border-neon-green/50 transition-all duration-500 overflow-hidden"
               >
                 {/* Background animation */}
                 <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none">
@@ -154,11 +154,11 @@ export function Advantages() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="mb-6 p-3 bg-neon-green/5 rounded-lg border border-neon-green/10 group-hover:bg-neon-green group-hover:text-black transition-all duration-300 w-fit">
+                  <div className="mb-6 p-3 bg-neon-green/5 rounded-lg border border-neon-green/15 group-hover:bg-neon-green group-hover:text-black transition-all duration-300 w-fit">
                     <IconComp size={28} />
                   </div>
 
-                  <h4 className="text-xl font-headline font-bold text-white mb-4 group-hover:text-neon-green transition-colors">
+                  <h4 className="text-xl font-headline font-bold text-white mb-4 leading-snug group-hover:text-neon-green transition-colors">
                     {adv.title}
                   </h4>
 

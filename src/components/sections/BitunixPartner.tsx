@@ -182,11 +182,11 @@ export function BitunixPartner() {
                 return (
                   <div key={idx} className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-neon-green/10 border border-neon-green/20 rounded">
+                      <div className="p-2 bg-neon-green/10 border border-neon-green/15 rounded">
                         <IconComp className="text-neon-green" size={20} />
                       </div>
                     </div>
-                    <h4 className="text-white font-headline font-bold text-lg">{f.title}</h4>
+                    <h4 className="text-white font-headline font-bold text-xl leading-snug">{f.title}</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">{f.desc}</p>
                   </div>
                 );
