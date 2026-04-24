@@ -63,6 +63,35 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Hero Visual animations ── */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(0.3deg); }
+  66%       { transform: translateY(-6px) rotate(-0.2deg); }
+}
+@keyframes nodesPulse {
+  0%, 100% { opacity: 0.3; r: 2.5px; }
+  50%       { opacity: 1;   r: 4px;   }
+}
+@keyframes textGlowPulse {
+  0%, 100% { text-shadow: 0 0 20px rgba(13,242,88,0.6), 0 0 40px rgba(13,242,88,0.3); }
+  50%       { text-shadow: 0 0 40px rgba(13,242,88,1),   0 0 80px rgba(13,242,88,0.5), 0 0 120px rgba(13,242,88,0.2); }
+}
+@keyframes xGlow {
+  0%, 100% { text-shadow: 0 0 16px rgba(200,224,82,0.7), 0 0 32px rgba(200,224,82,0.4); }
+  50%       { text-shadow: 0 0 32px rgba(200,224,82,1),   0 0 64px rgba(200,224,82,0.6), 0 0 100px rgba(200,224,82,0.3); }
+}
+@keyframes lineFlow {
+  0%   { stroke-dashoffset: 200; opacity: 0.1; }
+  50%  { opacity: 0.5; }
+  100% { stroke-dashoffset: 0;   opacity: 0.1; }
+}
+@keyframes borderScan {
+  0%   { box-shadow: 0 0 20px rgba(13,242,88,0.1), inset 0 0 20px rgba(13,242,88,0.05); }
+  50%  { box-shadow: 0 0 50px rgba(13,242,88,0.3), inset 0 0 30px rgba(13,242,88,0.1); }
+  100% { box-shadow: 0 0 20px rgba(13,242,88,0.1), inset 0 0 20px rgba(13,242,88,0.05); }
+}
+
 /* ── Intro / Loading Screen animations ── */
 @keyframes intro-drawLine {
   from { stroke-dashoffset: var(--dl, 2000); }
