@@ -525,7 +525,7 @@ export function BitunixPartner() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           {/* Left: text content */}
-          <div className="lg:w-1/2 space-y-10">
+          <div className="lg:w-3/5 space-y-10">
             <div>
               <h2 className="text-4xl md:text-5xl font-headline font-bold text-white leading-tight">
                 {t.bitunix.heading}
@@ -569,7 +569,7 @@ export function BitunixPartner() {
           </div>
 
           {/* Right: hexagonal radar chart */}
-          <div className="lg:w-1/2 flex items-center justify-center">
+          <div className="lg:w-2/5 flex items-center justify-center">
             <div className="relative w-full">
               {/* Background glow */}
               <div className="absolute inset-[20%] rounded-full bg-neon-green/5 blur-3xl pointer-events-none" />

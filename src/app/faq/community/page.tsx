@@ -31,58 +31,88 @@ const QA_ITEMS = [
 function FAQCommunityContent() {
   return (
     <section className="relative min-h-screen bg-[#050508] text-white overflow-hidden">
-      <div className="absolute inset-0 parallax-wireframe opacity-10 pointer-events-none" />
-
       <div className="relative z-10 container mx-auto px-6 lg:px-12 py-32">
 
-        {/* ── Back link ── */}
+        {/* Back link */}
         <div className="mb-10">
-          <a href="/faq" className="text-white/30 hover:text-neon-green font-code text-xs tracking-wider transition-colors">
-            ← FAQ
+          <a
+            href="/faq"
+            className="flex items-center gap-2 font-code text-[10px] tracking-widest text-white/25 hover:text-neon-green transition-colors uppercase"
+          >
+            <span>←</span>
+            <span>FAQ</span>
           </a>
         </div>
 
-        {/* ── Header ── */}
-        <div className="text-center mb-16 space-y-4">
-          <span className="inline-block text-xs font-code tracking-widest text-neon-green/60 uppercase border border-neon-green/20 rounded-full px-4 py-1.5">
-            03 · 社群互動
-          </span>
-          <h1 className="text-4xl md:text-6xl font-headline font-bold text-white leading-snug neon-glow">
+        {/* Header */}
+        <div className="mb-16">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="text-neon-green/50 font-code text-[11px]">[</span>
+            <span className="text-neon-green/70 font-code text-[11px] tracking-widest uppercase">03 · 社群互動</span>
+            <span className="text-neon-green/50 font-code text-[11px]">]</span>
+          </div>
+          <h1
+            className="font-headline font-black text-white leading-none mb-4"
+            style={{ fontSize: "clamp(40px, 7vw, 72px)" }}
+          >
             社群活動 Q&amp;A
           </h1>
+          <div className="h-px bg-gradient-to-r from-neon-green/20 to-transparent mt-6" />
         </div>
 
-        {/* ── Q&A Cards ── */}
-        <div className="max-w-3xl mx-auto space-y-5 mb-20">
-          {QA_ITEMS.map((item) => (
+        {/* Q&A step rows */}
+        <div className="max-w-3xl mx-auto mb-20" style={{ display: "flex", flexDirection: "column" }}>
+          {QA_ITEMS.map((item, i) => (
             <div
               key={item.num}
-              className="bg-[#111713]/60 border border-neon-green/10 rounded-2xl p-8"
+              className="group relative flex items-stretch bg-[#080d09] hover:bg-[#0a1209] border border-neon-green/8 hover:border-neon-green/25 transition-all duration-300 overflow-hidden"
+              style={{ marginBottom: "-1px" }}
             >
-              <div className="flex items-start gap-4">
-                <span className="flex-shrink-0 font-code text-xs font-bold text-neon-green bg-neon-green/10 border border-neon-green/20 rounded-full px-3 py-1 mt-0.5">
+              {/* HUD top-right bracket */}
+              <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-neon-green/15 group-hover:border-neon-green/50 transition-colors duration-300" />
+              {/* HUD bottom-left bracket */}
+              <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-neon-green/15 group-hover:border-neon-green/50 transition-colors duration-300" />
+
+              {/* Left Q number column */}
+              <div className="w-16 lg:w-20 flex items-start justify-center flex-shrink-0 pt-8 pb-8">
+                <span
+                  className="font-headline font-black leading-none select-none"
+                  style={{ fontSize: 40, color: "rgba(13,242,88,0.10)" }}
+                >
                   {item.num}
                 </span>
-                <div className="flex-1 space-y-3">
-                  <p className="font-headline font-bold text-white text-lg leading-snug">
-                    {item.question}
-                  </p>
-                  <p className="text-white/60 font-body text-sm leading-relaxed">
-                    {item.answer}
-                  </p>
-                </div>
+              </div>
+
+              {/* Right content */}
+              <div className="flex-1 py-8 pr-8">
+                <p className="font-headline font-bold text-white text-lg mb-3 leading-snug">
+                  {item.question}
+                </p>
+                <p className="text-white/45 text-sm leading-relaxed">
+                  {item.answer}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* ── CTA ── */}
-        <div className="text-center">
+        {/* CTA */}
+        <div className="flex flex-wrap gap-4 items-center">
           <a
             href="/community"
-            className="inline-block font-code text-sm tracking-wider text-neon-green border border-neon-green/30 rounded-full px-8 py-3 hover:bg-neon-green/10 hover:border-neon-green/60 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 font-headline font-black text-sm text-black"
+            style={{
+              background: "linear-gradient(135deg,#b8e000,#0DF258)",
+              boxShadow: "0 0 32px rgba(13,242,88,0.30)",
+            }}
           >
             立即加入社群 →
+          </a>
+          <a
+            href="/faq"
+            className="inline-flex items-center gap-2 px-6 py-4 font-headline font-black text-sm text-white border border-neon-green/25 bg-transparent hover:bg-neon-green/5 hover:border-neon-green/50 transition-all duration-200"
+          >
+            返回 FAQ
           </a>
         </div>
 
