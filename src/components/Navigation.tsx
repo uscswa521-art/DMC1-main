@@ -454,6 +454,15 @@ export function Navigation() {
     {showTransition && (
       <IntroScreen onComplete={handleTransitionComplete} />
     )}
+
+    {/* Mobile menu backdrop — tap outside to close */}
+    {mobileOpen && (
+      <div
+        className="fixed inset-0 z-40 lg:hidden"
+        onClick={() => setMobileOpen(false)}
+      />
+    )}
+
     <nav className={cn(
       "fixed top-0 w-full z-50 transition-all duration-300 glass border-b",
       isScrolled ? "border-neon-green/50" : "border-transparent"
