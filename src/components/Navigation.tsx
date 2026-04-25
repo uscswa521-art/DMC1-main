@@ -191,31 +191,31 @@ function PopupAdvantages({ t }: { t: any }) {
 }
 
 function PopupIndicators({ t }: { t: any }) {
+  const CATS = [
+    { icon: '⚡', label: '核心交易指標', sub: '高頻策略 · ICT · FVG · 吸籌追蹤', href: '/indicators/core' },
+    { icon: '🛡️', label: '風控工具套件', sub: 'ATR止損 · RR計算 · MSB警報',      href: '/indicators/risk'   },
+    { icon: '🔓', label: '解鎖指標禮包', sub: '免費 · 3步驟 · 社群限定',           href: '/indicators/unlock' },
+  ];
   return (
-    <div className="p-5 w-72 space-y-3">
-      <PopupHeader label="獨家指標禮包" badge="EXCLUSIVE" />
-      <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
-        <div>
-          <p className="text-white/25 font-code text-[9px] tracking-widest uppercase mb-2">核心模組</p>
-          {t.indicators.coreModules.map((item: string, i: number) => (
-            <div key={i} className="flex items-center gap-2 py-1">
-              <Check size={9} strokeWidth={3} className="text-neon-green shrink-0" />
-              <span className="text-white/65 text-[10px] leading-tight">{item}</span>
+    <div className="p-5 w-64 space-y-3">
+      <PopupHeader label="獨家指標禮包" badge="FREE" />
+      <div className="space-y-2">
+        {CATS.map((c, i) => (
+          <a key={i} href={c.href}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-neon-green/8 bg-neon-green/[0.03] hover:border-neon-green/25 hover:bg-neon-green/[0.07] transition-all duration-200 group/v">
+            <span className="text-base shrink-0">{c.icon}</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-white/80 text-[11px] font-bold group-hover/v:text-neon-green transition-colors">{c.label}</p>
+              <p className="text-white/30 text-[9px] font-code mt-0.5">{c.sub}</p>
             </div>
-          ))}
-        </div>
-        <div>
-          <p className="text-white/25 font-code text-[9px] tracking-widest uppercase mb-2">風控工具</p>
-          {t.indicators.riskManagement.map((item: string, i: number) => (
-            <div key={i} className="flex items-center gap-2 py-1">
-              <Check size={9} strokeWidth={3} className="text-neon-green/60 shrink-0" />
-              <span className="text-white/50 text-[10px] leading-tight">{item}</span>
-            </div>
-          ))}
-        </div>
+            <span className="text-neon-green/30 text-xs group-hover/v:translate-x-0.5 transition-transform">→</span>
+          </a>
+        ))}
       </div>
-      <div className="pt-2 border-t border-neon-green/8">
-        <p className="text-white/30 text-[10px] leading-snug">{t.indicators.requirementText}</p>
+      <div className="pt-1 border-t border-neon-green/8">
+        <a href="/indicators" className="flex items-center justify-between w-full px-2 py-1.5 text-white/25 hover:text-neon-green/60 font-code text-[10px] tracking-wider transition-colors">
+          查看完整指標介紹 →
+        </a>
       </div>
     </div>
   );
@@ -301,55 +301,62 @@ function PopupBitunix({ t }: { t: any }) {
 }
 
 function PopupTestimonials({ t }: { t: any }) {
-  const stats = [
-    { label: "社群成員", value: "2,000+", sub: "活躍交易者" },
-    { label: "平均回報", value: "+300%", sub: "社群見證" },
-    { label: "教學影片", value: "200+", sub: "完全免費" },
+  const CATS = [
+    { icon: '📈', label: '交易成果見證', sub: '盈利截圖 · 真實數據',   href: '/testimonials/results' },
+    { icon: '💬', label: '學習心得分享', sub: '群友評價 · 蛻變歷程',   href: '/testimonials/reviews' },
+    { icon: '🎬', label: '影片見證精選', sub: '真人出鏡 · 完整故事',   href: '/testimonials/videos'  },
   ];
   return (
     <div className="p-5 w-64 space-y-3">
       <PopupHeader label="群友見證" badge="VERIFIED" />
-      <div className="grid grid-cols-3 gap-2">
-        {stats.map((s) => (
-          <div key={s.label} className="text-center p-2.5 rounded-lg bg-neon-green/[0.04] border border-neon-green/10">
-            <p className="text-neon-green font-headline font-black text-base leading-none" style={{ textShadow: "0 0 12px rgba(13,242,88,0.4)" }}>{s.value}</p>
-            <p className="text-white/40 font-code text-[8px] mt-1 tracking-wider">{s.sub}</p>
-          </div>
+      <div className="space-y-2">
+        {CATS.map((c, i) => (
+          <a key={i} href={c.href}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-neon-green/8 bg-neon-green/[0.03] hover:border-neon-green/25 hover:bg-neon-green/[0.07] transition-all duration-200 group/v">
+            <span className="text-base shrink-0">{c.icon}</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-white/80 text-[11px] font-bold group-hover/v:text-neon-green transition-colors">{c.label}</p>
+              <p className="text-white/30 text-[9px] font-code mt-0.5">{c.sub}</p>
+            </div>
+            <span className="text-neon-green/30 text-xs group-hover/v:translate-x-0.5 transition-transform">→</span>
+          </a>
         ))}
       </div>
-      <div className="space-y-1.5 pt-1">
-        <p className="text-white/30 font-code text-[9px] tracking-widest uppercase">最新動態</p>
-        {[
-          "「真的是我交易生涯轉捩點」",
-          "「學會裸K後止損大幅減少」",
-          "「社群氛圍超好，問題秒回」",
-        ].map((q, i) => (
-          <div key={i} className="flex items-start gap-2">
-            <span className="text-neon-green/40 font-code text-[9px] mt-0.5 shrink-0">◈</span>
-            <p className="text-white/50 text-[10px] leading-snug italic">{q}</p>
-          </div>
-        ))}
+      <div className="pt-1 border-t border-neon-green/8">
+        <a href="/testimonials" className="flex items-center justify-between w-full px-2 py-1.5 text-white/25 hover:text-neon-green/60 font-code text-[10px] tracking-wider transition-colors">
+          查看全部見證 →
+        </a>
       </div>
     </div>
   );
 }
 
 function PopupFAQ({ t }: { t: any }) {
+  const CATS = [
+    { icon: '🚀', label: '加入方式 Q&A', sub: '免費嗎？如何加入？',   href: '/faq/getting-started' },
+    { icon: '📚', label: '學習系統 Q&A', sub: '學什麼？哪些市場？',   href: '/faq/learning'        },
+    { icon: '🤝', label: '社群活動 Q&A', sub: '發問管道 · 線下聚會', href: '/faq/community'       },
+  ];
   return (
-    <div className="p-5 w-72 space-y-3">
+    <div className="p-5 w-64 space-y-3">
       <PopupHeader label="常見問題" />
-      <div className="space-y-2.5">
-        {t.faq.items.slice(0, 4).map((item: any, i: number) => (
-          <div key={i} className="group/q">
-            <div className="flex items-start gap-2.5">
-              <span className="text-neon-green font-code text-[9px] font-bold shrink-0 mt-0.5 bg-neon-green/10 border border-neon-green/20 rounded px-1 py-0.5">Q{i + 1}</span>
-              <div>
-                <p className="text-white/75 text-[11px] font-bold leading-snug">{item.q}</p>
-                <p className="text-white/35 text-[10px] leading-snug mt-0.5 line-clamp-1">{item.a}</p>
-              </div>
+      <div className="space-y-2">
+        {CATS.map((c, i) => (
+          <a key={i} href={c.href}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-neon-green/8 bg-neon-green/[0.03] hover:border-neon-green/25 hover:bg-neon-green/[0.07] transition-all duration-200 group/v">
+            <span className="text-base shrink-0">{c.icon}</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-white/80 text-[11px] font-bold group-hover/v:text-neon-green transition-colors">{c.label}</p>
+              <p className="text-white/30 text-[9px] font-code mt-0.5">{c.sub}</p>
             </div>
-          </div>
+            <span className="text-neon-green/30 text-xs group-hover/v:translate-x-0.5 transition-transform">→</span>
+          </a>
         ))}
+      </div>
+      <div className="pt-1 border-t border-neon-green/8">
+        <a href="/faq" className="flex items-center justify-between w-full px-2 py-1.5 text-white/25 hover:text-neon-green/60 font-code text-[10px] tracking-wider transition-colors">
+          查看全部問題 →
+        </a>
       </div>
     </div>
   );
