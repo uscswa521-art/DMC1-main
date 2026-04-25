@@ -1,7 +1,6 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function About() {
@@ -46,17 +45,6 @@ export function About() {
             <p className="text-foreground leading-relaxed">{t.about.log004}</p>
           </div>
 
-          <div className="space-y-4">
-            <div className="flex items-start gap-4 p-4 border border-destructive/30 bg-destructive/5 rounded-md">
-              <AlertCircle className="text-destructive shrink-0 mt-1" />
-              <div>
-                <h4 className="text-destructive font-bold mb-1 leading-snug">{t.about.warningTitle}</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {t.about.warningDesc}
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>

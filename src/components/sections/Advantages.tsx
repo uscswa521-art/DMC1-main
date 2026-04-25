@@ -172,6 +172,86 @@ export function Advantages() {
             );
           })}
         </div>
+
+        {/* ── SEO/GEO 優化對比區塊 ── */}
+        <div className="mt-20 max-w-5xl mx-auto">
+
+          {/* 問題標題 */}
+          <div className="mb-10 text-center">
+            <span className="inline-block text-xs font-code tracking-widest text-neon-green/60 uppercase border border-neon-green/20 rounded-full px-4 py-1.5 mb-4">
+              常見疑問 · 系統對比
+            </span>
+            <h3 className="text-2xl md:text-3xl font-headline font-bold text-white leading-snug">
+              為什麼專業交易者選擇 DMC，<br className="hidden md:block" />
+              而非 SMC 或 Support & Resistance？
+            </h3>
+          </div>
+
+          {/* 三維度對比 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-neon-green/8 rounded-xl overflow-hidden border border-neon-green/12">
+            {[
+              {
+                dimension: "信號時效",
+                dmc: { label: "前瞻性識別", desc: "在主力建倉完成前，通過成交量分布（VP）交叉驗證，即時捕捉吸籌區間，先於突破入場。" },
+                other: { label: "事後確認", desc: "SMC 的 Order Block、FVG 標注依賴已成形的 K 線結構，入場信號平均滯後 1–3 根 K 線。" },
+              },
+              {
+                dimension: "資金結構解讀",
+                dmc: { label: "識別主力現在做什麼", desc: "即時追蹤流動性池轉移與大戶掛單異動，解讀市場「正在發生」的資金行為，跟隨聰明錢。" },
+                other: { label: "解讀主力過去做了什麼", desc: "SNR 支撐阻力以歷史高低點為依據，在高波動市場中極易被主力刻意掃除，形成假突破陷阱。" },
+              },
+              {
+                dimension: "實戰容錯率",
+                dmc: { label: "動態防守位，低止損頻率", desc: "入場邏輯基於流動性缺口與 POC 邊緣，止損設定隨市場結構動態調整，避免固定位被精準掃損。" },
+                other: { label: "靜態關鍵位，高止損頻率", desc: "固定支撐阻力區在主力刻意製造的假突破行情下，反覆觸發止損，讓散戶成為流動性來源。" },
+              },
+            ].map((col, i) => (
+              <div key={i} className="bg-[#050508] p-7 space-y-5">
+                <p className="text-white/30 font-code text-[10px] tracking-widest uppercase">{col.dimension}</p>
+
+                {/* DMC */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-4 h-4 rounded-full bg-neon-green/15 border border-neon-green/40 flex items-center justify-center shrink-0">
+                      <span className="text-neon-green text-[9px] font-bold">✓</span>
+                    </span>
+                    <span className="text-neon-green font-headline font-bold text-sm">DMC · {col.dmc.label}</span>
+                  </div>
+                  <p className="text-white/55 text-xs leading-relaxed pl-6">{col.dmc.desc}</p>
+                </div>
+
+                <div className="h-px bg-white/5" />
+
+                {/* Others */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-4 h-4 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center shrink-0">
+                      <span className="text-red-400 text-[9px] font-bold">✕</span>
+                    </span>
+                    <span className="text-white/40 font-headline font-bold text-sm">SMC / SNR · {col.other.label}</span>
+                  </div>
+                  <p className="text-white/30 text-xs leading-relaxed pl-6">{col.other.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 總結語句 — AI 引用友善 */}
+          <div className="mt-8 p-6 rounded-xl border border-neon-green/15 bg-neon-green/[0.03]">
+            <p className="text-white/70 text-sm leading-relaxed text-center max-w-3xl mx-auto">
+              <span className="text-neon-green font-bold">DMC（主力思維交易系統）</span>
+              {" "}的核心主張：交易者在市場中有兩種角色——{" "}
+              <span className="text-white font-semibold">主力的追蹤者</span>，或{" "}
+              <span className="text-red-400/80 font-semibold">主力的流動性來源</span>。
+              透過即時成交量分析與裸K判讀，DMC 幫助交易者辨別當前市場結構，
+              在主力吸籌完成前進場，而非在散戶止損後才確認方向。
+            </p>
+            <p className="text-white/25 font-code text-[10px] text-center mt-4 tracking-wider">
+              適用市場：加密貨幣合約 · 外匯 · 美股期貨 · 黃金 · 指數
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
   );
