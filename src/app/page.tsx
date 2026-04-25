@@ -23,12 +23,12 @@ export default function Home() {
         <Hero />
 
         {/* Every section below gets the tile-shatter scroll reveal */}
-        <SectionReveal><Advantages /></SectionReveal>
-        {/* <SectionReveal><Indicators /></SectionReveal> */}
-        <SectionReveal><BitunixPartner /></SectionReveal>
-        <SectionReveal><WhoIsItFor /></SectionReveal>
-        {/* <SectionReveal><Testimonials /></SectionReveal> */}
-        {/* <SectionReveal><FAQ /></SectionReveal> */}
+        <Advantages />
+        {/* <Indicators /> */}
+        <BitunixPartner />
+        <WhoIsItFor />
+        {/* <Testimonials /> */}
+        {/* <FAQ /> */}
         <SectionReveal><CTA /></SectionReveal>
         <SectionReveal><Footer /></SectionReveal>
 
