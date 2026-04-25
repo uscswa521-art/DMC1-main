@@ -264,6 +264,9 @@ const PAGE_LINKS: Record<string, string> = {
   '#faq':          '/faq',
 };
 
+// Nav items that scroll directly — no hover popup
+const NO_POPUP = new Set(['#advantages']);
+
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -386,7 +389,7 @@ export function Navigation() {
               )}
 
               {/* ── Hover popup ── */}
-              <div className={cn(
+              {!NO_POPUP.has(link.href) && <div className={cn(
                 "absolute top-full mt-3 z-50",
                 // fade + slide
                 "opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible",
@@ -415,7 +418,7 @@ export function Navigation() {
                   onAboutClick={() => triggerTransition('/about')}
                   onPageLink={(url) => { window.location.href = url; }}
                 />
-              </div>
+              </div>}
             </div>
           ))}
 
