@@ -188,7 +188,7 @@ export function Advantages() {
           </div>
 
           {/* 三維度對比 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-neon-green/8 rounded-xl overflow-hidden border border-neon-green/12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-neon-green/8 rounded-xl overflow-hidden border border-neon-green/12">
             {[
               {
                 dimension: "信號時效",

@@ -249,36 +249,36 @@ export function Hero() {
       <div className="absolute inset-0 scanline-bg pointer-events-none z-[11] opacity-20" />
 
       {/* Content */}
-      <div className="w-full relative z-20 pl-[4%] lg:pl-[12%] pr-0 grid grid-cols-1 lg:grid-cols-[26%_74%] gap-4 lg:gap-8 items-start py-10">
+      <div className="w-full relative z-20 px-6 md:px-12 lg:px-[8%] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-12">
 
-        {/* ── Left: Text (no buttons) ── */}
-        <div className="space-y-8">
-          <h1 className="font-headline text-7xl md:text-8xl xl:text-9xl font-bold leading-tight text-white neon-glow whitespace-nowrap">
+        {/* ── Left: Text ── */}
+        <div className="space-y-6 lg:space-y-8">
+          <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-bold leading-tight text-white neon-glow break-words">
             {t.hero.headline}
           </h1>
 
-          <p className="text-2xl md:text-3xl font-headline text-neon-chartreuse/90 border-l-4 border-neon-green pl-6 py-2 leading-snug whitespace-pre">
+          <p className="text-lg sm:text-xl md:text-2xl font-headline text-neon-chartreuse/90 border-l-4 border-neon-green pl-5 py-2 leading-snug whitespace-pre-line">
             {t.hero.subheadline}
           </p>
 
-          <p className="text-muted-foreground text-xl md:text-2xl font-body leading-relaxed whitespace-pre">
+          <p className="text-muted-foreground text-base md:text-lg font-body leading-relaxed whitespace-pre-line">
             {t.hero.body}
           </p>
 
           <a
             href="#"
-            className="group inline-flex items-center gap-2 px-10 py-4 rounded-full font-headline font-black text-lg text-black
+            className="group inline-flex items-center gap-2 px-7 sm:px-10 py-3.5 sm:py-4 rounded-full font-headline font-black text-base sm:text-lg text-black
               bg-gradient-to-r from-[#b8e000] via-[#9ed600] to-[#0DF258]
               shadow-[0_4px_24px_rgba(158,214,0,0.45)]
               hover:shadow-[0_4px_36px_rgba(158,214,0,0.7)]
-              hover:px-10 active:scale-[0.97] transition-all duration-300 whitespace-nowrap"
+              active:scale-[0.97] transition-all duration-300"
           >
             {t.hero.ctaRegister}
           </a>
         </div>
 
         {/* ── Right: Animated DMC × BITUNIX ── */}
-        <div className="hidden lg:flex items-start justify-end" style={{ paddingRight: '178px' }}>
+        <div className="hidden lg:flex items-center justify-center">
           <PartnershipVisual />
         </div>
       </div>

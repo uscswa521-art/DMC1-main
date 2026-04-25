@@ -400,6 +400,7 @@ const NO_POPUP = new Set(['#advantages']);
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [showTransition, setShowTransition] = useState(false);
   const [transitionTarget, setTransitionTarget] = useState('/about');
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -588,15 +589,78 @@ export function Navigation() {
         </div>
 
         {/* Mobile hamburger */}
-        <button className="lg:hidden text-neon-green">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
+        <button
+          className="lg:hidden text-neon-green p-1"
+          onClick={() => setMobileOpen((o) => !o)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          )}
         </button>
 
       </div>
 
       </div>
+
+      {/* ── Mobile menu panel ── */}
+      {mobileOpen && (
+        <div className="lg:hidden border-t border-neon-green/15 bg-[#0c120e]/95 backdrop-blur-md">
+          <div className="container mx-auto px-6 py-4 space-y-1">
+            {NAV_LINKS.map((link) => {
+              const href = TRANSITION_PAGES[link.href]
+                ? undefined
+                : PAGE_LINKS[link.href]
+                  ? PAGE_LINKS[link.href]
+                  : (isHome ? link.href : `/${link.href}`);
+
+              return TRANSITION_PAGES[link.href] ? (
+                <button
+                  key={link.href}
+                  onClick={() => { setMobileOpen(false); triggerTransition(TRANSITION_PAGES[link.href]); }}
+                  className="w-full text-left px-4 py-3 text-sm font-code font-semibold text-white/80 hover:text-neon-green hover:bg-neon-green/5 rounded-lg transition-colors"
+                >
+                  {link.name}
+                </button>
+              ) : (
+                <a
+                  key={link.href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-4 py-3 text-sm font-code font-semibold text-white/80 hover:text-neon-green hover:bg-neon-green/5 rounded-lg transition-colors"
+                >
+                  {link.name}
+                </a>
+              );
+            })}
+
+            {/* Language selector in mobile menu */}
+            <div className="pt-3 border-t border-neon-green/10">
+              <p className="px-4 text-white/25 font-code text-[10px] tracking-widest uppercase mb-2">語言 / Language</p>
+              <div className="grid grid-cols-3 gap-1.5">
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setMobileOpen(false); }}
+                    className={cn(
+                      "px-2 py-1.5 rounded text-xs font-code text-center transition-colors",
+                      l.code === lang ? "text-neon-green bg-neon-green/10 border border-neon-green/30" : "text-white/50 hover:text-neon-green hover:bg-neon-green/5"
+                    )}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
 
     </>
