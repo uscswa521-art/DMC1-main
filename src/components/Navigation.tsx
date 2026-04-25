@@ -221,21 +221,31 @@ function PopupIndicators({ t }: { t: any }) {
 }
 
 function PopupTraining({ t }: { t: any }) {
+  const CATEGORIES = [
+    { icon: '📚', label: '核心理論課', sub: '主力行為 · 日內思維', href: '/training/core' },
+    { icon: '⚡', label: '實戰技術課', sub: '加密實戰 · DMC策略', href: '/training/skills' },
+    { icon: '🔴', label: '直播精華',   sub: '實況回放 · 盤中解析', href: '/training/live'  },
+  ];
   return (
-    <div className="p-5 w-68 space-y-3">
+    <div className="p-5 w-64 space-y-3">
       <PopupHeader label="實戰教學" badge={`${t.training.videos.length} FREE`} />
-      <div className="space-y-1.5">
-        {t.training.videos.map((v: any, i: number) => (
-          <div key={i} className="flex items-center gap-3 px-2.5 py-2 rounded-lg hover:bg-neon-green/5 transition-colors group/v">
-            <div className="w-5 h-5 rounded-full bg-neon-green/10 border border-neon-green/20 flex items-center justify-center shrink-0">
-              <Play size={7} className="text-neon-green fill-neon-green ml-0.5" />
-            </div>
+      <div className="space-y-2">
+        {CATEGORIES.map((c, i) => (
+          <a key={i} href={c.href}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-neon-green/8 bg-neon-green/[0.03] hover:border-neon-green/25 hover:bg-neon-green/[0.07] transition-all duration-200 group/v">
+            <span className="text-base shrink-0">{c.icon}</span>
             <div className="flex-1 min-w-0">
-              <p className="text-white/75 text-[11px] font-bold group-hover/v:text-white transition-colors truncate">{v.title}</p>
+              <p className="text-white/80 text-[11px] font-bold group-hover/v:text-neon-green transition-colors">{c.label}</p>
+              <p className="text-white/30 text-[9px] font-code mt-0.5">{c.sub}</p>
             </div>
-            <span className="text-neon-green/40 font-code text-[9px] shrink-0 border border-neon-green/15 rounded px-1.5 py-0.5">{v.category}</span>
-          </div>
+            <span className="text-neon-green/30 text-xs group-hover/v:translate-x-0.5 transition-transform">→</span>
+          </a>
         ))}
+      </div>
+      <div className="pt-1 border-t border-neon-green/8">
+        <a href="/training" className="flex items-center justify-between w-full px-2 py-1.5 text-white/25 hover:text-neon-green/60 font-code text-[10px] tracking-wider transition-colors">
+          查看全部教學 →
+        </a>
       </div>
     </div>
   );
