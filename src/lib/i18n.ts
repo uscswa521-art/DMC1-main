@@ -102,8 +102,8 @@ const translations: Record<LangCode, Translations> = {
       faq: 'FAQ',
     },
     hero: {
-      headline: '交易是甚麼?',
-      subheadline: '我們不是教你畫線\n而是讓你真正看懂主力思維 ，跟著聰明錢走。',
+      headline: '機構交易思維',
+      subheadline: '透視成交量：精準定位聰明錢\n量化合約實戰：主力追蹤系統',
       body: '沒接觸過交易也能學會加密貨幣合約交易！\n1秒教你如何用「DMC策略」',
       ctaPrimary: '加入社群 | 看每日盤面策略+免費教學',
       ctaSecondary: '點我私訊 | 直送交易策略+入門影片',
