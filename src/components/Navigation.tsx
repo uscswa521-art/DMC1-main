@@ -24,30 +24,142 @@ function PopupHeader({ label, badge }: { label: string; badge?: string }) {
 // ── Per-section popup panels ──────────────────────────────
 
 function PopupAbout({ t, onAboutClick }: { t: any; onAboutClick: () => void }) {
-  const logs = [t.about.log001, t.about.log002, t.about.log003, t.about.log004];
+  const [activeTab, setActiveTab] = useState<0 | 1 | 2>(0);
+
+  const TABS = ['甚麼是 DMC？', '認識大衛', '加入社群'];
+
+  const DMC_POINTS = [
+    { icon: '⚡', title: '主力思維交易系統', desc: '不教你畫線，而是讓你真正讀懂主力意圖，跟著聰明錢走，而非成為流動性。' },
+    { icon: '📊', title: '成交量分布分析', desc: '即時追蹤資金流向，識別主力吸籌與派發區間，在突破前精準入場。' },
+    { icon: '🎯', title: '裸K精準判讀', desc: '排除所有延遲指標，回歸價格本質，一眼辨別真突破與假訊號。' },
+  ];
+
+  const logs = [
+    { text: t.about.log001 },
+    { text: t.about.log002 },
+    { text: t.about.log003 },
+    { text: t.about.log004 },
+  ];
+
+  const COMMUNITY = [
+    { value: '2,000+', label: '活躍社群成員' },
+    { value: '200+',   label: '免費教學影片' },
+    { value: '免費',   label: '加入零門檻' },
+  ];
+
   return (
-    <div className="p-5 w-72 space-y-3">
-      <PopupHeader label="關於 DMC" />
-      {/* Timeline logs */}
-      <div className="space-y-2">
-        {logs.map((log: string, i: number) => (
-          <div key={i} className="flex items-start gap-2.5">
-            <div className="flex flex-col items-center shrink-0 mt-0.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-neon-green/70" />
-              {i < logs.length - 1 && <div className="w-px h-4 bg-neon-green/15 mt-0.5" />}
-            </div>
-            <p className="text-white/55 text-[11px] leading-snug">{log}</p>
-          </div>
+    <div className="w-80 overflow-hidden">
+      {/* Tab header */}
+      <div className="flex border-b border-neon-green/12">
+        {TABS.map((tab, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveTab(i as 0 | 1 | 2)}
+            className="flex-1 px-2 py-3 text-[10px] font-code tracking-wider transition-all duration-150 relative"
+            style={{
+              color: activeTab === i ? '#0DF258' : 'rgba(255,255,255,0.3)',
+              background: activeTab === i ? 'rgba(13,242,88,0.05)' : 'transparent',
+            }}
+          >
+            {tab}
+            {activeTab === i && (
+              <span className="absolute bottom-0 left-0 right-0 h-px bg-neon-green" />
+            )}
+          </button>
         ))}
       </div>
-      {/* CTA */}
-      <button
-        onClick={onAboutClick}
-        className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-neon-green/20 bg-neon-green/5 hover:bg-neon-green/10 hover:border-neon-green/40 transition-all duration-200 group/link mt-1"
-      >
-        <span className="text-neon-green/80 font-code text-[10px] tracking-wider group-hover/link:text-neon-green transition-colors">{t.about.heading}</span>
-        <span className="text-neon-green/50 text-xs group-hover/link:translate-x-0.5 transition-transform">→</span>
-      </button>
+
+      {/* Tab content */}
+      <div className="p-5">
+
+        {/* Tab 0: 甚麼是 DMC？ */}
+        {activeTab === 0 && (
+          <div className="space-y-3">
+            <p className="text-white/40 font-code text-[9px] tracking-widest uppercase">核心系統</p>
+            <div className="space-y-2.5">
+              {DMC_POINTS.map((pt, i) => (
+                <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-neon-green/8 bg-neon-green/[0.03]">
+                  <span className="text-base leading-none shrink-0 mt-0.5">{pt.icon}</span>
+                  <div>
+                    <p className="text-white/85 text-[11px] font-bold mb-0.5">{pt.title}</p>
+                    <p className="text-white/40 text-[10px] leading-snug">{pt.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={onAboutClick}
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-neon-green/20 bg-neon-green/5 hover:bg-neon-green/10 transition-all duration-200 group/l mt-1"
+            >
+              <span className="text-neon-green/70 font-code text-[10px] tracking-wider group-hover/l:text-neon-green transition-colors">了解更多 →</span>
+            </button>
+          </div>
+        )}
+
+        {/* Tab 1: 認識大衛 */}
+        {activeTab === 1 && (
+          <div className="space-y-3">
+            <p className="text-white/40 font-code text-[9px] tracking-widest uppercase">大衛的故事</p>
+            <div className="space-y-2">
+              {logs.map((log, i) => (
+                <div key={i} className="flex items-start gap-2.5">
+                  <div className="flex flex-col items-center shrink-0 mt-1">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-green/70" />
+                    {i < logs.length - 1 && <div className="w-px h-5 bg-neon-green/15 mt-0.5" />}
+                  </div>
+                  <p className="text-white/60 text-[11px] leading-snug pb-1">{log.text}</p>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={onAboutClick}
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-neon-green/20 bg-neon-green/5 hover:bg-neon-green/10 transition-all duration-200 group/l"
+            >
+              <span className="text-neon-green/70 font-code text-[10px] tracking-wider group-hover/l:text-neon-green transition-colors">{t.about.heading} →</span>
+            </button>
+          </div>
+        )}
+
+        {/* Tab 2: 加入社群 */}
+        {activeTab === 2 && (
+          <div className="space-y-3">
+            <p className="text-white/40 font-code text-[9px] tracking-widest uppercase">社群福利</p>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-2">
+              {COMMUNITY.map((c) => (
+                <div key={c.label} className="text-center p-2.5 rounded-lg bg-neon-green/[0.04] border border-neon-green/10">
+                  <p className="text-neon-green font-headline font-black text-sm leading-none"
+                    style={{ textShadow: '0 0 10px rgba(13,242,88,0.4)' }}>{c.value}</p>
+                  <p className="text-white/35 font-code text-[8px] mt-1 leading-tight">{c.label}</p>
+                </div>
+              ))}
+            </div>
+            {/* Benefits */}
+            <div className="space-y-1.5">
+              {[
+                '每日盤面策略分析',
+                '完整免費影片教學庫',
+                'DMC 獨家指標禮包',
+                '直播實況盤中解析',
+                '社群群友互助交流',
+              ].map((b, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <Check size={9} strokeWidth={3} className="text-neon-green shrink-0" />
+                  <span className="text-white/60 text-[11px]">{b}</span>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={onAboutClick}
+              className="w-full px-3 py-2.5 rounded-lg font-headline font-black text-xs text-black transition-all duration-200 hover:opacity-90 mt-1"
+              style={{ background: 'linear-gradient(135deg,#b8e000,#0DF258)', boxShadow: '0 0 20px rgba(13,242,88,0.3)' }}
+            >
+              立即了解加入方式
+            </button>
+          </div>
+        )}
+
+      </div>
     </div>
   );
 }
