@@ -164,6 +164,16 @@ function PopupBitunix() {
           </div>
         ))}
       </div>
+      {/* Compare link */}
+      <div className="pt-1 border-t border-neon-green/10">
+        <a
+          href="/bitunix-compare"
+          className="flex items-center justify-between w-full px-3 py-2 rounded-lg bg-neon-green/8 border border-neon-green/20 hover:bg-neon-green/15 hover:border-neon-green/40 transition-all duration-200 group"
+        >
+          <span className="text-neon-green/80 font-code text-[10px] tracking-wider group-hover:text-neon-green transition-colors">查看交易所完整對比</span>
+          <span className="text-neon-green/60 text-xs group-hover:translate-x-0.5 transition-transform">→</span>
+        </a>
+      </div>
     </div>
   );
 }
