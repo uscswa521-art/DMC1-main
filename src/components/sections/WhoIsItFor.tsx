@@ -1,6 +1,6 @@
 "use client";
 
-import { Bitcoin, TrendingUp, BarChart2, Check, X } from "lucide-react";
+import { Bitcoin, TrendingUp, BarChart2 } from "lucide-react";
 
 const MARKETS = [
   {
@@ -23,19 +23,6 @@ const MARKETS = [
   },
 ];
 
-const FIT_YES = [
-  "對交易感興趣，但不知如何真正入門",
-  "想理解市場結構，而不只靠感覺入場",
-  "願意花時間學習系統化方法",
-  "希望用紀律和風險管理保護本金",
-];
-
-const FIT_NO = [
-  "想找「保證獲利」的訊號跟單",
-  "不想學習，只想快速致富",
-  "無法接受有損失的交易系統",
-  "期望一夜暴富，不願付出努力",
-];
 
 export function WhoIsItFor() {
   return (
@@ -85,52 +72,96 @@ export function WhoIsItFor() {
         </div>
       </section>
 
-      {/* ── Section 2: Fit / Not Fit ── */}
-      <section className="relative py-24 bg-[#080d09]">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <h2 className="text-4xl md:text-5xl font-headline font-bold text-white leading-snug">
-              這套系統，<span className="text-neon-green">適合你嗎？</span>
+      {/* ── Section 2: Manifesto ── */}
+      <section className="relative py-32 bg-[#080d09] overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full opacity-10"
+            style={{ background: "radial-gradient(ellipse, #0DF258 0%, transparent 70%)" }} />
+        </div>
+
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+
+          {/* ── Main manifesto block ── */}
+          <div className="max-w-3xl mx-auto text-center mb-20">
+            {/* Badge */}
+            <span className="inline-block text-xs font-code tracking-widest text-neon-green/60 uppercase border border-neon-green/20 rounded-full px-4 py-1.5 mb-8">
+              我們的承諾
+            </span>
+
+            {/* Statement */}
+            <h2 className="text-4xl md:text-6xl font-headline font-bold leading-tight mb-6">
+              <span className="text-white">沒有報單。</span>
+              <br />
+              <span className="text-white">沒有收費。</span>
+              <br />
+              <span className="text-neon-green" style={{ textShadow: "0 0 40px rgba(13,242,88,0.4)" }}>
+                只有純粹的交易智識。
+              </span>
             </h2>
-            <p className="text-muted-foreground text-base">
-              DMC 並非適合所有人 — 這是我們精心打造的系統。<br />
-              如果你認真對待交易，你會在這裡找到答案。
+
+            {/* Sub-statement */}
+            <p className="text-white/50 text-lg leading-relaxed max-w-xl mx-auto">
+              讓你真正看懂市場結構、掌握主力節奏——
+              <br className="hidden md:block" />
+              <span className="text-white/80 font-semibold">從此，交易不再靠運氣。</span>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {/* ✓ Good fit */}
-            <div className="bg-[#060d07] border border-neon-green/25 rounded-xl p-8 space-y-5">
-              <div className="flex items-center gap-3 pb-4 border-b border-neon-green/15">
-                <div className="w-8 h-8 rounded-full bg-neon-green/15 flex items-center justify-center">
-                  <Check size={16} className="text-neon-green" />
-                </div>
-                <h3 className="font-headline font-bold text-white text-lg">適合你，如果你⋯</h3>
+          {/* ── 3 pillars ── */}
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-px bg-neon-green/8 rounded-2xl overflow-hidden border border-neon-green/10 mb-16">
+            {[
+              {
+                icon: "🌐",
+                title: "線上教學 × 線下實戰",
+                desc: "跨越地域限制的學習社群，無論你在哪裡，都能與頂尖交易者同步進化。",
+              },
+              {
+                icon: "⚡",
+                title: "拒絕廢話，直接實戰",
+                desc: "每一個技巧都源自真實盤面驗證，零理論包袱，學完即用，即刻應用於市場。",
+              },
+              {
+                icon: "🧠",
+                title: "以簡馭繁，看穿盤面",
+                desc: "用最簡單的方法，讀懂最複雜的主力意圖。複雜的市場，清晰的決策。",
+              },
+            ].map((p, i) => (
+              <div key={i} className="bg-[#080d09] p-8 group hover:bg-neon-green/[0.04] transition-colors duration-300">
+                <span className="text-3xl block mb-4">{p.icon}</span>
+                <h3 className="text-white font-headline font-bold text-base mb-3 group-hover:text-neon-green transition-colors">
+                  {p.title}
+                </h3>
+                <p className="text-white/40 text-sm leading-relaxed">{p.desc}</p>
               </div>
-              {FIT_YES.map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <Check size={15} className="text-neon-green mt-0.5 shrink-0" />
-                  <span className="text-white/80 text-sm leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* ✗ Not a fit */}
-            <div className="bg-[#100608] border border-red-500/20 rounded-xl p-8 space-y-5">
-              <div className="flex items-center gap-3 pb-4 border-b border-red-500/15">
-                <div className="w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center">
-                  <X size={16} className="text-red-400" />
-                </div>
-                <h3 className="font-headline font-bold text-white text-lg">不適合你，如果你⋯</h3>
-              </div>
-              {FIT_NO.map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <X size={15} className="text-red-400 mt-0.5 shrink-0" />
-                  <span className="text-white/60 text-sm leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
+
+          {/* ── CTA ── */}
+          <div className="text-center space-y-5">
+            <p className="text-white/35 font-code text-sm tracking-wider">
+              加入大衛，一起進化成頂尖交易者
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="/community"
+                className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-headline font-black text-base text-black transition-all duration-200 hover:opacity-90 hover:scale-105"
+                style={{ background: "linear-gradient(135deg,#b8e000,#0DF258)", boxShadow: "0 0 40px rgba(13,242,88,0.35)" }}
+              >
+                立即免費加入社群
+              </a>
+              <a
+                href="/training"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-headline font-black text-sm text-white border border-neon-green/25 bg-neon-green/[0.05] hover:bg-neon-green/10 hover:border-neon-green/50 transition-all duration-200"
+              >
+                先看免費教學 →
+              </a>
+            </div>
+            <p className="text-white/20 font-code text-[11px] tracking-wider pt-1">
+              加入即送 DMC 獨家指標禮包 · 完全免費 · 無需信用卡
+            </p>
+          </div>
+
         </div>
       </section>
     </>
