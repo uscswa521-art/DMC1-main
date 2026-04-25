@@ -130,7 +130,7 @@ export function Advantages() {
 
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-white neon-glow leading-snug">
+          <h2 className="text-3xl md:text-4xl font-headline font-bold text-white neon-glow leading-snug whitespace-nowrap">
             {t.advantages.heading}
           </h2>
           <p className="text-muted-foreground text-base leading-relaxed">
