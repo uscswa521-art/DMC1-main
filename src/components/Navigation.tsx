@@ -87,12 +87,12 @@ function PopupAbout({ t, onAboutClick }: { t: any; onAboutClick: () => void }) {
                 </div>
               ))}
             </div>
-            <button
-              onClick={onAboutClick}
+            <a
+              href="/what-is-dmc"
               className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-neon-green/20 bg-neon-green/5 hover:bg-neon-green/10 transition-all duration-200 group/l mt-1"
             >
               <span className="text-neon-green/70 font-code text-[10px] tracking-wider group-hover/l:text-neon-green transition-colors">了解更多 →</span>
-            </button>
+            </a>
           </div>
         )}
 
