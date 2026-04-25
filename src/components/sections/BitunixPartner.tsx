@@ -548,12 +548,24 @@ export function BitunixPartner() {
               })}
             </div>
 
-            <button className="flex items-center gap-4 group">
-              <span className="text-neon-green font-code text-sm border-b border-neon-green group-hover:px-4 transition-all py-1">
-                REGISTER ON BITUNIX NOW
-              </span>
-              <ArrowUpRight className="text-neon-green group-hover:rotate-45 transition-transform" />
-            </button>
+            <div className="flex flex-wrap items-center gap-5">
+              <button className="flex items-center gap-4 group">
+                <span className="text-neon-green font-code text-sm border-b border-neon-green group-hover:px-4 transition-all py-1">
+                  REGISTER ON BITUNIX NOW
+                </span>
+                <ArrowUpRight className="text-neon-green group-hover:rotate-45 transition-transform" />
+              </button>
+
+              <a
+                href="/bitunix-compare"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-neon-green/30 bg-neon-green/5 hover:bg-neon-green/10 hover:border-neon-green/60 transition-all duration-200 group"
+              >
+                <span className="text-neon-green/80 font-code text-xs tracking-wider group-hover:text-neon-green transition-colors">
+                  查看交易所對比
+                </span>
+                <ArrowUpRight size={13} className="text-neon-green/60 group-hover:text-neon-green group-hover:rotate-45 transition-all duration-200" />
+              </a>
+            </div>
           </div>
 
           {/* Right: hexagonal radar chart */}
