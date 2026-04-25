@@ -111,12 +111,12 @@ function PopupAbout({ t, onAboutClick }: { t: any; onAboutClick: () => void }) {
                 </div>
               ))}
             </div>
-            <button
-              onClick={onAboutClick}
+            <a
+              href="/david"
               className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-neon-green/20 bg-neon-green/5 hover:bg-neon-green/10 transition-all duration-200 group/l"
             >
-              <span className="text-neon-green/70 font-code text-[10px] tracking-wider group-hover/l:text-neon-green transition-colors">{t.about.heading} →</span>
-            </button>
+              <span className="text-neon-green/70 font-code text-[10px] tracking-wider group-hover/l:text-neon-green transition-colors">認識大衛的完整故事 →</span>
+            </a>
           </div>
         )}
 
@@ -149,13 +149,13 @@ function PopupAbout({ t, onAboutClick }: { t: any; onAboutClick: () => void }) {
                 </div>
               ))}
             </div>
-            <button
-              onClick={onAboutClick}
-              className="w-full px-3 py-2.5 rounded-lg font-headline font-black text-xs text-black transition-all duration-200 hover:opacity-90 mt-1"
+            <a
+              href="/community"
+              className="w-full flex items-center justify-center px-3 py-2.5 rounded-lg font-headline font-black text-xs text-black transition-all duration-200 hover:opacity-90 mt-1"
               style={{ background: 'linear-gradient(135deg,#b8e000,#0DF258)', boxShadow: '0 0 20px rgba(13,242,88,0.3)' }}
             >
-              立即了解加入方式
-            </button>
+              立即了解加入方式 →
+            </a>
           </div>
         )}
 
