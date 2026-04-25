@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Globe, ChevronDown, Zap, Eye, BarChart3, Play, Check } from "lucide-react";
@@ -396,6 +397,8 @@ export function Navigation() {
   const [transitionTarget, setTransitionTarget] = useState('/about');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { lang, setLang, t } = useLanguage();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   const triggerTransition = useCallback((target: string) => {
     setTransitionTarget(target);
@@ -503,7 +506,7 @@ export function Navigation() {
                 </a>
               ) : (
                 <a
-                  href={link.href}
+                  href={isHome ? link.href : `/${link.href}`}
                   className="text-xs uppercase tracking-wider text-white/80 hover:text-neon-green transition-colors font-code font-semibold block py-1 whitespace-nowrap"
                 >
                   {link.name}
